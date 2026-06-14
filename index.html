@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title id="page-title">Sahil Bhoir | AI/ML Engineer & Cloud Developer</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --indigo:#6366f1;--violet:#8b5cf6;--cyan:#22d3ee;
+  --bg:#030712;--surface:#0d1117;--border:rgba(255,255,255,0.07);
+  --text:#e2e8f0;--muted:#64748b;
+}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");pointer-events:none;z-index:999;opacity:0.4;}
+.display{font-family:'Syne',sans-serif;}
+nav{position:fixed;top:0;width:100%;z-index:100;padding:20px 0;transition:all 0.4s;}
+nav.scrolled{background:rgba(3,7,18,0.88);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:14px 0;}
+.nav-link{color:var(--muted);font-size:14px;font-weight:500;letter-spacing:0.02em;transition:color 0.3s;text-decoration:none;}
+.nav-link:hover{color:#fff;}
+.hero-bg{background:radial-gradient(ellipse 80% 50% at 20% 40%,rgba(99,102,241,0.12),transparent),radial-gradient(ellipse 60% 40% at 80% 60%,rgba(139,92,246,0.1),transparent),radial-gradient(ellipse 40% 30% at 50% 100%,rgba(34,211,238,0.06),transparent),var(--bg);}
+.grid-bg{background-image:linear-gradient(rgba(255,255,255,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px);background-size:60px 60px;}
+.glass{background:rgba(255,255,255,0.04);border:1px solid var(--border);backdrop-filter:blur(12px);}
+.grad{background:linear-gradient(135deg,#a5b4fc 0%,#818cf8 40%,#c084fc 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.tag{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;letter-spacing:0.04em;padding:4px 12px;border-radius:100px;border:1px solid rgba(99,102,241,0.3);color:#a5b4fc;background:rgba(99,102,241,0.08);text-transform:uppercase;}
+.skill-pill{display:flex;align-items:center;gap:10px;padding:11px 18px;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,0.03);font-size:14px;font-weight:500;transition:all 0.3s;cursor:default;}
+.skill-pill:hover{border-color:rgba(99,102,241,0.5);background:rgba(99,102,241,0.08);transform:translateY(-3px);color:#a5b4fc;}
+.proj-card{border-radius:20px;border:1px solid var(--border);background:rgba(255,255,255,0.025);overflow:hidden;transition:all 0.4s cubic-bezier(0.175,0.885,0.32,1.275);}
+.proj-card:hover{transform:translateY(-8px);border-color:rgba(99,102,241,0.4);box-shadow:0 30px 60px rgba(0,0,0,0.4),0 0 40px rgba(99,102,241,0.08);}
+.cert-badge{display:flex;align-items:center;gap:16px;padding:18px 22px;border-radius:16px;border:1px solid var(--border);background:rgba(255,255,255,0.025);transition:all 0.3s;}
+.cert-badge:hover{border-color:rgba(99,102,241,0.4);transform:translateX(6px);}
+.sec-label{font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;}
+@keyframes pulse-green{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,0.4);}50%{box-shadow:0 0 0 8px rgba(34,197,94,0);}}
+.avail-dot{width:8px;height:8px;border-radius:50%;background:#22c55e;animation:pulse-green 2s infinite;}
+@keyframes float1{0%,100%{transform:translateY(0);}50%{transform:translateY(-18px);}}
+@keyframes float2{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
+.shape1{animation:float1 7s ease-in-out infinite;}.shape2{animation:float2 9s ease-in-out infinite;}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1);}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal-delay-1{transition-delay:0.1s;}.reveal-delay-2{transition-delay:0.2s;}.reveal-delay-3{transition-delay:0.3s;}.reveal-delay-4{transition-delay:0.4s;}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:14px;background:var(--indigo);color:#fff;font-weight:600;font-size:15px;border:none;cursor:pointer;transition:all 0.3s;text-decoration:none;font-family:'DM Sans',sans-serif;}
+.btn-primary:hover{background:#4f46e5;transform:translateY(-2px);box-shadow:0 12px 30px rgba(99,102,241,0.35);}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:14px;background:transparent;color:#fff;font-weight:500;font-size:15px;border:1px solid var(--border);cursor:pointer;transition:all 0.3s;text-decoration:none;font-family:'DM Sans',sans-serif;}
+.btn-ghost:hover{background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.15);}
+.form-input{width:100%;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:12px;padding:14px 18px;color:#fff;font-family:'DM Sans',sans-serif;font-size:15px;outline:none;transition:border-color 0.3s;}
+.form-input:focus{border-color:rgba(99,102,241,0.6);}.form-input::placeholder{color:var(--muted);}
+#mobile-menu{display:none;position:fixed;inset:0;z-index:90;background:rgba(3,7,18,0.97);backdrop-filter:blur(20px);flex-direction:column;align-items:center;justify-content:center;gap:40px;}
+#mobile-menu.open{display:flex;}
+#mobile-menu a{font-family:'Syne',sans-serif;font-size:32px;font-weight:700;color:#fff;text-decoration:none;transition:color 0.3s;}
+#mobile-menu a:hover{color:#a5b4fc;}
+#cursor-glow{position:fixed;pointer-events:none;z-index:9998;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(99,102,241,0.07),transparent 70%);transform:translate(-50%,-50%);transition:left 0.15s ease,top 0.15s ease;}
+::selection{background:rgba(99,102,241,0.4);color:#fff;}
+::-webkit-scrollbar{width:5px;}::-webkit-scrollbar-track{background:var(--bg);}::-webkit-scrollbar-thumb{background:#1e293b;border-radius:10px;}
+@keyframes marquee{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+.marquee-track{display:flex;animation:marquee 28s linear infinite;width:max-content;}
+.marquee-track:hover{animation-play-state:paused;}
+.metric-card{padding:22px 28px;border-radius:18px;border:1px solid var(--border);background:rgba(255,255,255,0.025);text-align:center;transition:all 0.3s;}
+.metric-card:hover{border-color:rgba(99,102,241,0.4);background:rgba(99,102,241,0.06);transform:translateY(-4px);}
+.hire-item{display:flex;align-items:center;gap:12px;padding:14px 18px;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,0.02);transition:all 0.3s;}
+.hire-item:hover{border-color:rgba(74,222,128,0.3);background:rgba(74,222,128,0.04);}
+.arch-step{display:flex;align-items:center;gap:8px;padding:10px 16px;border-radius:10px;background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.25);font-size:13px;font-weight:600;color:#a5b4fc;white-space:nowrap;}
+.arch-arrow{color:rgba(99,102,241,0.5);font-size:18px;flex-shrink:0;}
+
+/* Project filter tabs */
+.filter-btn{padding:8px 20px;border-radius:100px;border:1px solid var(--border);background:transparent;color:var(--muted);font-size:13px;font-weight:500;cursor:pointer;transition:all 0.3s;font-family:'DM Sans',sans-serif;}
+.filter-btn.active,.filter-btn:hover{background:rgba(99,102,241,0.15);border-color:rgba(99,102,241,0.4);color:#a5b4fc;}
+.proj-card.hidden{display:none;}
+
+/* Featured badge */
+.featured-badge{position:absolute;top:14px;right:14px;padding:4px 12px;border-radius:100px;background:rgba(250,204,21,0.15);border:1px solid rgba(250,204,21,0.3);color:#fbbf24;font-size:11px;font-weight:700;letter-spacing:0.06em;}
+</style>
+</head>
+<body>
+
+<script>
+const DATA = {
+  name:       "Sahil Bhoir",
+  title:      "Sahil Bhoir | AI/ML Engineer & Cloud Developer",
+  tagline:    "AI/ML Engineer & Cloud Developer",
+  photo:      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400",
+  location:   "Thane, Maharashtra",
+  email:      "sahilbhoir151@gmail.com",
+  github:     "https://github.com/SahilBh01r1769",
+  linkedin:   "https://www.linkedin.com/in/sahil-bhoir-2a8750387/",
+  resumePDF:  "resume.pdf",
+  available:  true,
+  availText:  "Open to graduate & entry-level roles",
+
+  heroBanner: "🚀 Open to Graduate Roles, Internships & Entry-Level Opportunities",
+  heroBio:    "Computer Engineering graduate with expertise in AI/ML, cloud-native development, and scalable backend systems. Built serverless AWS applications, NLP platforms, real-time computer vision systems, and deep learning pipelines using Python, PyTorch, OpenCV, and modern cloud services. Passionate about transforming data into intelligent products that solve real-world problems.",
+  typingStrings: [
+    "AI/ML Engineer",
+    "Computer Vision Engineer",
+    "Cloud-Native Developer",
+    "NLP & Deep Learning",
+    "AWS Certified Practitioner",
+    "Full Stack Developer"
+  ],
+  heroBadges: ["🤖 AI/ML", "☁ AWS Cloud", "🐍 Python", "👁 Computer Vision"],
+
+  stats: [
+    { value: "100K+", label: "Lines of Code" },
+    { value: "12+",   label: "Projects Delivered" },
+    { value: "500+",  label: "Concurrent Requests" },
+    { value: "9.744", label: "CGPA" }
+  ],
+
+  aboutHeading: "Building intelligent systems at the intersection of AI and cloud",
+  aboutPara1: "I'm a Computer Engineering graduate from Vidyalankar Institute of Technology, Mumbai, with a minor in Artificial Intelligence and Machine Learning. I specialize in designing NLP, computer vision, predictive analytics, and deep learning solutions deployed on scalable cloud infrastructure.",
+  aboutPara2: "From building real-time violence detection systems with YOLOv8 to serverless AWS applications and image captioning with CNN-LSTM encoder-decoders — I engineer production-ready software with a focus on performance, maintainability, and real-world impact.",
+  aboutValues: [
+    { icon: "🧠", title: "AI & Machine Learning",       desc: "Designed NLP, computer vision, and deep learning solutions including real-time object detection and image captioning." },
+    { icon: "☁️", title: "Cloud Architecture",          desc: "Built serverless AWS applications using Lambda, S3, DynamoDB, and API Gateway at scale." },
+    { icon: "⚙️", title: "Software Engineering",        desc: "Developed REST APIs, full-stack applications, and production-ready deployments." },
+    { icon: "📚", title: "Continuous Learning",         desc: "AWS Certified and IBM Full Stack Developer — always upskilling in the latest ML and cloud tech." }
+  ],
+
+  projects: [
+    {
+      featured: true,
+      category: "cv",
+      title:   "Real-Time Violence Detection System",
+      label:   "Computer Vision · YOLOv8",
+      image:   "https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=1200",
+      desc:    "End-to-end AI surveillance system that detects violent activities (Fighting, Weapon, Aggression) from live video streams in real-time using a fine-tuned YOLOv8 model. Dispatches instant multi-channel alerts via WhatsApp and Email within 5 seconds of confirmed detection. Features temporal consistency filtering to eliminate false positives, with a 4-page Streamlit monitoring dashboard.",
+      highlight: "Real-time 15–30 FPS inference · Multi-channel alerts in &lt;5s · Temporal consistency filter",
+      architecture: ["Webcam/RTSP", "YOLOv8", "Consistency Check", "Screenshot", "FastAPI", "Twilio/SMTP"],
+      tags:    ["YOLOv8", "OpenCV", "FastAPI", "Streamlit", "Twilio", "Python", "Docker"],
+      demo:    "https://violencedetectiondemo.streamlit.app/",
+      repo:    "https://github.com/SahilBh01r1769/violence_detection"
+    },
+    {
+      featured: true,
+      category: "dl",
+      title:   "Image Captioning — CNN + LSTM",
+      label:   "Deep Learning · NLP",
+      image:   "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1200",
+      desc:    "End-to-end image captioning system using a ResNet50 CNN encoder and a 2-layer LSTM decoder with GloVe 200-dim embeddings, trained on the Flickr8k dataset. Implements teacher forcing during training and both greedy and beam search (k=5) decoding at inference. Achieves BLEU-4 ~0.22 and METEOR ~0.23 on the Flickr8k test split, with full corpus-level evaluation.",
+      highlight: "BLEU-4 ~0.22 · METEOR ~0.23 · Beam search k=5 · Flickr8k dataset",
+      architecture: ["ResNet50", "GlobalAvgPool", "Linear(512)", "GloVe Embed", "LSTM×2", "Softmax"],
+      tags:    ["PyTorch", "ResNet50", "LSTM", "GloVe", "BLEU/METEOR", "Flickr8k", "Beam Search"],
+      demo:    "https://image-captioning-demo.streamlit.app",
+      repo:    "https://github.com/SahilBh01r1769/image-captioning"
+    },
+    {
+      featured: false,
+      category: "cloud",
+      title:   "Serverless Receipt Processor",
+      label:   "AWS · Serverless",
+      image:   "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1200",
+      desc:    "Fully serverless event-driven AWS application that processes receipt and invoice images using Amazon Textract OCR. Reduced manual processing effort by over 80% while maintaining 92% OCR accuracy across vendor names, amounts, and dates. Handles 500+ concurrent requests via Lambda auto-scaling with average processing time under 5 seconds.",
+      highlight: "80% reduction in manual effort · 92% OCR accuracy · &lt;5s processing",
+      architecture: ["S3", "Lambda", "Textract", "DynamoDB", "API Gateway", "CloudWatch"],
+      tags:    ["AWS Lambda", "Textract", "DynamoDB", "Step Functions", "API Gateway", "S3"],
+      demo:    "https://d3uo3z77ak8ix1.cloudfront.net",
+      repo:    "https://github.com/SahilBh01r1769"
+    },
+    {
+      featured: false,
+      category: "nlp",
+      title:   "NLP Multi-Feature Text Analyzer",
+      label:   "NLP",
+      image:   "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=800",
+      desc:    "Multi-feature NLP platform supporting sentiment analysis, summarization, named entity recognition, and keyword extraction for long-form textual data. Optimized inference pipelines using spaCy and transformer-based models, reducing processing latency by 37% and improving entity extraction accuracy. Processes 5,000+ word documents in real-time.",
+      highlight: "37% latency reduction · Real-time · 5k+ word docs",
+      tags:    ["Python", "Flask", "spaCy", "Streamlit", "HuggingFace"],
+      demo:    "https://huggingface.co/spaces/XMEN1769/NLP-WEB-APP",
+      repo:    "https://github.com/SahilBh01r1769/NLP_WEB_APP_h"
+    },
+    {
+      featured: false,
+      category: "dl",
+      title:   "LSTM Predictive Maintenance",
+      label:   "Deep Learning",
+      image:   "https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=800",
+      desc:    "Stacked and bidirectional LSTM models in PyTorch predicting Remaining Useful Life from multivariate sensor data. Sliding-window preprocessing pipeline improved performance ~28% over baseline, enabling early fault detection in industrial equipment.",
+      highlight: "28% improvement over baseline · RUL prediction · Fault detection",
+      tags:    ["PyTorch", "LSTM", "Time-Series", "Machine Learning"],
+      demo:    "#",
+      repo:    "https://github.com/SahilBh01r1769"
+    }
+  ],
+
+  skillCategories: [
+    {
+      icon:  "🧠",
+      title: "AI / Machine Learning",
+      color: "rgba(99,102,241,0.15)",
+      skills: [
+        { name: "Python",                    icon: "fab fa-python",    color: "#3b82f6", level: "Expert" },
+        { name: "PyTorch",                   icon: "fas fa-fire",      color: "#f97316", level: "Advanced" },
+        { name: "TensorFlow / Keras",        icon: "fas fa-brain",     color: "#8b5cf6", level: "Advanced" },
+        { name: "NLP (spaCy, NLTK, HF)",     icon: "fas fa-language",  color: "#22d3ee", level: "Advanced" },
+        { name: "Scikit-learn / Pandas",     icon: "fas fa-chart-line",color: "#4ade80", level: "Advanced" },
+        { name: "LangChain",                 icon: "fas fa-link",      color: "#a78bfa", level: "Intermediate" }
+      ]
+    },
+    {
+      icon:  "👁️",
+      title: "Computer Vision",
+      color: "rgba(239,68,68,0.12)",
+      skills: [
+        { name: "YOLOv8 / Ultralytics",  icon: "fas fa-crosshairs",   color: "#ef4444", level: "Advanced" },
+        { name: "OpenCV",                icon: "fas fa-camera",        color: "#22d3ee", level: "Advanced" },
+        { name: "ResNet / CNN",          icon: "fas fa-network-wired", color: "#8b5cf6", level: "Advanced" },
+        { name: "Object Detection",      icon: "fas fa-draw-polygon",  color: "#f97316", level: "Advanced" },
+        { name: "Image Segmentation",    icon: "fas fa-object-group",  color: "#4ade80", level: "Intermediate" },
+        { name: "Real-time Inference",   icon: "fas fa-bolt",          color: "#facc15", level: "Advanced" }
+      ]
+    },
+    {
+      icon:  "☁️",
+      title: "Cloud & Backend",
+      color: "rgba(34,211,238,0.1)",
+      skills: [
+        { name: "AWS (Lambda, S3, EC2, RDS)", icon: "fab fa-aws",          color: "#f97316", level: "Advanced" },
+        { name: "Flask / FastAPI / Streamlit",icon: "fas fa-server",       color: "#e2e8f0", level: "Advanced" },
+        { name: "Docker",                     icon: "fab fa-docker",       color: "#3b82f6", level: "Advanced" },
+        { name: "Kubernetes",                 icon: "fas fa-dharmachakra", color: "#6366f1", level: "Intermediate" },
+        { name: "REST API Design",            icon: "fas fa-bolt",         color: "#facc15", level: "Advanced" },
+        { name: "DynamoDB / MongoDB",         icon: "fas fa-database",     color: "#f97316", level: "Intermediate" }
+      ]
+    },
+    {
+      icon:  "💻",
+      title: "Languages & Tools",
+      color: "rgba(168,85,247,0.1)",
+      skills: [
+        { name: "JavaScript",  icon: "fab fa-js",      color: "#facc15", level: "Intermediate" },
+        { name: "React.js",    icon: "fab fa-react",   color: "#22d3ee", level: "Intermediate" },
+        { name: "Java / C++",  icon: "fas fa-code",    color: "#94a3b8", level: "Intermediate" },
+        { name: "Git / GitHub",icon: "fab fa-git-alt", color: "#f97316", level: "Advanced" },
+        { name: "Linux",       icon: "fab fa-linux",   color: "#e2e8f0", level: "Advanced" },
+        { name: "Node.js",     icon: "fab fa-node-js", color: "#4ade80", level: "Intermediate" }
+      ]
+    },
+    {
+      icon:  "🤖",
+      title: "Gen AI & MLOps",
+      color: "rgba(34,211,238,0.08)",
+      skills: [
+        { name: "LangChain / LangGraph",  icon: "fas fa-project-diagram", color: "#a78bfa", level: "Intermediate" },
+        { name: "RAG Systems",            icon: "fas fa-search",          color: "#22d3ee", level: "Intermediate" },
+        { name: "Prompt Engineering",     icon: "fas fa-magic",           color: "#f97316", level: "Intermediate" },
+        { name: "Vector Databases",       icon: "fas fa-layer-group",     color: "#4ade80", level: "Intermediate" },
+        { name: "CI/CD Pipelines",        icon: "fas fa-infinity",        color: "#6366f1", level: "Intermediate" },
+        { name: "Terraform",              icon: "fas fa-cubes",           color: "#818cf8", level: "Beginner" }
+      ]
+    }
+  ],
+
+  journey: [
+    {
+      dotColor:  "#6366f1",
+      glowColor: "rgba(99,102,241,0.5)",
+      title:     "B.E. Computer Engineering",
+      org:       "Vidyalankar Institute of Technology, Mumbai",
+      meta:      "CGPA: 9.744",
+      accent:    "#a5b4fc",
+      period:    "2020 – 2024",
+      desc:      "Graduated with a minor in Artificial Intelligence and Machine Learning. Coursework covered software engineering, ML, cloud computing, OS, databases, data structures, algorithms, and distributed systems.",
+      tags:      ["AI/ML Minor", "Cloud Computing", "Distributed Systems", "9.744 CGPA"]
+    },
+    {
+      dotColor:  "#22d3ee",
+      glowColor: "rgba(34,211,238,0.5)",
+      title:     "AWS Certified Cloud Practitioner",
+      org:       "Amazon Web Services — CLF-C02",
+      meta:      "AWS Certification",
+      accent:    "#22d3ee",
+      period:    "2023",
+      desc:      "Validated foundational knowledge of cloud architecture, AWS services, security, deployment models, and cloud best practices. Built hands-on serverless projects during prep.",
+      tags:      ["EC2", "S3", "Lambda", "IAM", "CloudFormation"]
+    },
+    {
+      dotColor:  "#8b5cf6",
+      glowColor: "rgba(139,92,246,0.5)",
+      title:     "IBM Full Stack Software Developer",
+      org:       "IBM / Coursera — Professional Certificate",
+      meta:      "Professional Certificate",
+      accent:    "#a5b4fc",
+      period:    "2023",
+      desc:      "12-course professional certificate covering React, Node.js, databases, Docker, Kubernetes, cloud-native development, and modern software engineering practices.",
+      tags:      ["React", "Node.js", "Docker", "Kubernetes"]
+    },
+    {
+      dotColor:  "#f97316",
+      glowColor: "rgba(249,115,22,0.5)",
+      title:     "NLP Platform, AWS Apps & Deep Learning",
+      org:       "Independent Projects",
+      meta:      "2025",
+      accent:    "#fdba74",
+      period:    "2025",
+      desc:      "Built the NLP Multi-Feature Analyzer (deployed on HuggingFace), Serverless Receipt Processor on AWS, LSTM Predictive Maintenance system, and an Image Captioning pipeline (ResNet50 + LSTM + GloVe, BLEU-4 ~0.22 on Flickr8k).",
+      tags:      ["NLP", "AWS Lambda", "HuggingFace", "PyTorch", "Image Captioning"]
+    },
+    {
+      dotColor:  "#ef4444",
+      glowColor: "rgba(239,68,68,0.5)",
+      title:     "Real-Time Violence Detection System",
+      org:       "Independent Project — Computer Vision",
+      meta:      "2026",
+      accent:    "#fca5a5",
+      period:    "2026",
+      desc:      "Designed and built a full-stack AI surveillance system using YOLOv8, OpenCV, FastAPI, and Streamlit. Features real-time inference at 20+ FPS, WhatsApp + Email alerting, temporal consistency filtering, and Docker deployment.",
+      tags:      ["YOLOv8", "OpenCV", "FastAPI", "Twilio", "Docker"]
+    },
+    {
+      dotColor:  "#4ade80",
+      glowColor: "rgba(74,222,128,0.5)",
+      title:     "Exploring Agentic AI & MLOps",
+      org:       "Currently learning & seeking roles",
+      meta:      "Available Now",
+      accent:    "#86efac",
+      period:    "2026",
+      desc:      "Actively upskilling in Agentic AI Architectures, LLM Fine-Tuning, advanced MLOps workflows, and AWS Solutions Architecture. Open to full-time, graduate, and research roles.",
+      tags:      ["Agentic AI", "MLOps", "LLM Fine-Tuning", "AWS SAA"]
+    }
+  ],
+
+  certifications: [
+    { icon: "☁️", color: "rgba(34,211,238,0.1)",  border: "rgba(34,211,238,0.2)",  title: "AWS Certified Cloud Practitioner",                        issuer: "Amazon Web Services" },
+    { icon: "🏗️", color: "rgba(99,102,241,0.1)",  border: "rgba(99,102,241,0.2)",  title: "IBM Full Stack Software Developer Professional Certificate", issuer: "IBM" },
+    { icon: "☁️", color: "rgba(34,211,238,0.08)", border: "rgba(34,211,238,0.15)", title: "AWS Cloud Practitioner Essentials",                        issuer: "Amazon Web Services" },
+    { icon: "🧠", color: "rgba(168,85,247,0.1)",  border: "rgba(168,85,247,0.2)",  title: "Machine Learning in Python",                              issuer: "Udemy" },
+    { icon: "🐍", color: "rgba(59,130,246,0.1)",  border: "rgba(59,130,246,0.2)",  title: "Programming for Everybody (Python)",                      issuer: "University of Michigan" }
+  ],
+
+  whyHireMe: [
+    "Strong Computer Engineering Foundation",
+    "Top Academic Performance — 9.744 CGPA",
+    "AI/ML Specialization & Minor",
+    "Computer Vision & Real-Time Systems",
+    "AWS Certified Cloud Practitioner",
+    "Full Stack Development Experience",
+    "Cloud-Native & Serverless Project Experience",
+    "Fast Learner With Production Mindset"
+  ],
+
+  researchInterests: ["Agentic AI Systems", "RAG", "LLM Applications", "MLOps", "Computer Vision", "Real-Time AI", "Cloud-Native Architectures"],
+  currentlyLearning: ["Advanced MLOps Workflows", "Kubernetes Production", "Agentic AI Architectures", "LLM Fine-Tuning", "AWS Solutions Architecture"],
+  techBanner: ["Python", "YOLOv8", "OpenCV", "AWS", "PyTorch", "Flask", "FastAPI", "Docker", "Kubernetes", "NLP", "Machine Learning", "React", "MongoDB", "LangChain", "TensorFlow", "Streamlit", "DynamoDB", "CI/CD", "ResNet50", "LSTM"],
+
+  contactHeading: "Let's Connect",
+  contactBio:     "I'm currently seeking graduate and entry-level opportunities in software development, cloud computing, and machine learning. Feel free to reach out about projects, collaboration, or roles.",
+  footerText: "© 2026 Sahil Bhoir. Built with HTML, Tailwind CSS & JavaScript."
+};
+</script>
+
+<div id="cursor-glow"></div>
+
+<div id="mobile-menu">
+  <button id="close-menu" style="position:absolute;top:24px;right:24px;background:none;border:none;color:#fff;font-size:28px;cursor:pointer;"><i class="fas fa-times"></i></button>
+  <a href="#about"    onclick="closeMobileMenu()">About</a>
+  <a href="#projects" onclick="closeMobileMenu()">Projects</a>
+  <a href="#skills"   onclick="closeMobileMenu()">Skills</a>
+  <a href="#journey"  onclick="closeMobileMenu()">Journey</a>
+  <a href="#contact"  onclick="closeMobileMenu()">Contact</a>
+</div>
+
+<nav id="navbar">
+  <div style="max-width:1200px;margin:0 auto;padding:0 32px;display:flex;justify-content:space-between;align-items:center;">
+    <a href="#" id="nav-logo" style="font-family:'Syne',sans-serif;font-size:22px;font-weight:800;text-decoration:none;" class="grad"></a>
+    <div style="display:flex;gap:40px;align-items:center;" class="hidden md:flex">
+      <a href="#about"    class="nav-link">About</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#skills"   class="nav-link">Skills</a>
+      <a href="#journey"  class="nav-link">Journey</a>
+      <a href="#contact"  class="nav-link">Contact</a>
+    </div>
+    <div style="display:flex;gap:16px;align-items:center;">
+      <a href="#contact" class="btn-primary" style="padding:10px 22px;font-size:14px;display:none;" id="nav-cta">Hire Me</a>
+      <button id="ham-btn" onclick="toggleMenu()" style="background:none;border:none;cursor:pointer;padding:4px;display:none;flex-direction:column;gap:6px;">
+        <span style="width:24px;height:2px;background:#fff;display:block;border-radius:2px;"></span>
+        <span style="width:24px;height:2px;background:#fff;display:block;border-radius:2px;"></span>
+        <span style="width:24px;height:2px;background:#fff;display:block;border-radius:2px;"></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div id="app"></div>
+
+<script>
+const el = (tag, attrs='', inner='') => `<${tag} ${attrs}>${inner}</${tag}>`;
+const initials = name => name.split(' ').map(w=>w[0]).join('');
+
+/* ── HERO ── */
+function renderHero(d){
+  const badges = d.heroBadges.map(b=>`<div class="glass" style="padding:10px 20px;border-radius:100px;font-size:14px;">${b}</div>`).join('');
+  const statsRow = d.stats.map(s=>`
+    <div>
+      <div class="display" style="font-size:24px;font-weight:800;background:linear-gradient(135deg,#a5b4fc,#818cf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">${s.value}</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:2px;">${s.label}</div>
+    </div>
+    <div style="width:1px;background:var(--border);"></div>
+  `).join('');
+  return `
+  <section class="hero-bg grid-bg" style="min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:120px 32px 80px;">
+    <div class="shape1" style="position:absolute;top:15%;right:8%;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(139,92,246,0.12),transparent 70%);pointer-events:none;"></div>
+    <div class="shape2" style="position:absolute;bottom:20%;left:5%;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(34,211,238,0.08),transparent 70%);pointer-events:none;"></div>
+    <div style="max-width:1200px;margin:0 auto;width:100%;position:relative;z-index:1;">
+      <div id="hero-grid" style="display:grid;grid-template-columns:1fr 420px;gap:80px;align-items:center;">
+        <div>
+          <div style="display:inline-flex;align-items:center;gap:10px;padding:8px 18px;border-radius:100px;border:1px solid rgba(34,197,94,0.3);background:rgba(34,197,94,0.06);margin-bottom:32px;" class="reveal">
+            <div class="avail-dot"></div>
+            <span style="font-size:13px;font-weight:500;color:#86efac;">${d.heroBanner}</span>
+          </div>
+          <h1 class="display reveal reveal-delay-1" style="font-size:clamp(40px,5.5vw,72px);font-weight:800;line-height:1.05;letter-spacing:-0.02em;margin-bottom:24px;">
+            ${d.name}<br>
+            <span class="grad">AI/ML Engineer</span><br>
+            <span style="color:rgba(255,255,255,0.45);font-weight:700;font-size:0.72em;">& Cloud Developer</span>
+          </h1>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:28px;" class="reveal reveal-delay-2">
+            <div style="width:32px;height:2px;background:var(--indigo);border-radius:2px;flex-shrink:0;"></div>
+            <p style="font-size:18px;color:#94a3b8;font-weight:300;"><span id="typing"></span></p>
+          </div>
+          <p style="font-size:16px;color:#64748b;line-height:1.85;max-width:560px;margin-bottom:36px;" class="reveal reveal-delay-2">${d.heroBio}</p>
+          <div style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:40px;" class="reveal reveal-delay-2">${badges}</div>
+          <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:40px;padding:22px;border-radius:16px;border:1px solid var(--border);background:rgba(255,255,255,0.02);" class="reveal reveal-delay-3">
+            ${statsRow}
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:14px;" class="reveal reveal-delay-4">
+            <a href="#projects" class="btn-primary"><i class="fas fa-layer-group" style="font-size:13px;"></i> View Projects</a>
+            <a href="${d.resumePDF}" download class="btn-ghost"><i class="fas fa-download" style="font-size:13px;"></i> Download Resume</a>
+            <a href="${d.github}" target="_blank" class="btn-ghost" style="padding:14px 18px;"><i class="fab fa-github" style="font-size:16px;"></i></a>
+            <a href="${d.linkedin}" target="_blank" class="btn-ghost" style="padding:14px 18px;"><i class="fab fa-linkedin" style="font-size:16px;"></i></a>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-2" style="display:flex;justify-content:center;" id="hero-card">
+          <div style="position:relative;width:360px;">
+            <div style="position:absolute;inset:-30px;background:radial-gradient(circle,rgba(99,102,241,0.2),transparent 70%);border-radius:50%;filter:blur(30px);z-index:0;"></div>
+            <div style="position:relative;z-index:1;border-radius:28px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.04);backdrop-filter:blur(20px);overflow:hidden;">
+              <div style="height:130px;background:linear-gradient(135deg,rgba(99,102,241,0.3),rgba(139,92,246,0.2),rgba(34,211,238,0.15));position:relative;">
+                <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:20px 20px;"></div>
+              </div>
+              <div style="padding:0 26px 26px;">
+                <div style="margin-top:-55px;margin-bottom:16px;">
+                  <img src="${d.photo}" style="width:95px;height:95px;border-radius:50%;object-fit:cover;border:4px solid rgba(99,102,241,0.4);box-shadow:0 0 30px rgba(99,102,241,0.3);" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                  <div style="display:none;width:95px;height:95px;border-radius:50%;background:rgba(99,102,241,0.2);border:4px solid rgba(99,102,241,0.4);align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:28px;font-weight:800;" class="grad">${initials(d.name)}</div>
+                </div>
+                <h3 class="display" style="font-size:20px;font-weight:700;margin-bottom:4px;">${d.name}</h3>
+                <p style="font-size:13px;color:var(--muted);margin-bottom:14px;">${d.tagline}</p>
+                <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px;">
+                  <span class="tag">Python</span><span class="tag">YOLOv8</span><span class="tag">AWS</span><span class="tag">PyTorch</span>
+                </div>
+                <div style="border-top:1px solid var(--border);padding-top:14px;display:flex;flex-direction:column;gap:8px;">
+                  <div style="display:flex;align-items:center;gap:8px;"><span style="color:#facc15;font-size:12px;">★</span><span style="font-size:12px;color:#94a3b8;">9.744 CGPA — Top Graduate</span></div>
+                  <div style="display:flex;align-items:center;gap:8px;"><span style="color:#22d3ee;font-size:12px;"><i class="fab fa-aws"></i></span><span style="font-size:12px;color:#94a3b8;">AWS Certified Cloud Practitioner</span></div>
+                  <div style="display:flex;align-items:center;gap:8px;"><span style="color:#ef4444;font-size:12px;"><i class="fas fa-eye"></i></span><span style="font-size:12px;color:#94a3b8;">Computer Vision · YOLOv8</span></div>
+                  <div style="display:flex;align-items:center;gap:8px;"><div class="avail-dot"></div><span style="font-size:12px;color:#86efac;">${d.availText}</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div style="padding:20px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:rgba(255,255,255,0.015);overflow:hidden;">
+    <div class="marquee-track" id="tech-banner"></div>
+  </div>`;
+}
+
+/* ── ABOUT ── */
+function renderAbout(d){
+  const values = d.aboutValues.map((v,i)=>`
+    <div class="cert-badge reveal reveal-delay-${i+1}">
+      <div style="width:42px;height:42px;border-radius:10px;background:rgba(99,102,241,0.1);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">${v.icon}</div>
+      <div>
+        <div style="font-weight:600;font-size:14px;margin-bottom:3px;">${v.title}</div>
+        <div style="font-size:13px;color:var(--muted);">${v.desc}</div>
+      </div>
+    </div>`).join('');
+  return `
+  <section id="about" style="padding:120px 32px;background:var(--surface);">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div id="about-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
+        <div class="reveal">
+          <p class="sec-label">Who I Am</p>
+          <h2 class="display" style="font-size:clamp(30px,3.5vw,46px);font-weight:800;letter-spacing:-0.02em;margin-bottom:22px;line-height:1.1;">${d.aboutHeading}</h2>
+          <p style="font-size:16px;color:#64748b;line-height:1.9;margin-bottom:18px;">${d.aboutPara1}</p>
+          <p style="font-size:16px;color:#64748b;line-height:1.9;margin-bottom:30px;">${d.aboutPara2}</p>
+          <div style="margin-bottom:28px;">
+            <p style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;">Research Interests</p>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;">${d.researchInterests.map(r=>`<span class="tag" style="font-size:11px;">${r}</span>`).join('')}</div>
+          </div>
+          <div style="margin-bottom:28px;">
+            <p style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;">Currently Learning</p>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;">${d.currentlyLearning.map(r=>`<span style="display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;letter-spacing:0.04em;padding:4px 12px;border-radius:100px;border:1px solid rgba(34,211,238,0.3);color:#67e8f9;background:rgba(34,211,238,0.06);text-transform:uppercase;">📖 ${r}</span>`).join('')}</div>
+          </div>
+          <div style="display:flex;gap:14px;flex-wrap:wrap;">
+            <a href="#projects" class="btn-primary">See My Work</a>
+            <a href="#contact"  class="btn-ghost">Get In Touch</a>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px;">${values}</div>
+      </div>
+    </div>
+  </section>`;
+}
+
+/* ── METRICS ── */
+function renderMetrics(d){
+  const metrics = [
+    { value: "100K+", label: "Lines of Code Written",      icon: "fas fa-code",            color: "#6366f1" },
+    { value: "12+",   label: "Projects Delivered",         icon: "fas fa-layer-group",     color: "#8b5cf6" },
+    { value: "500+",  label: "Concurrent Requests",        icon: "fas fa-bolt",            color: "#22d3ee" },
+    { value: "92%",   label: "OCR Accuracy Achieved",      icon: "fas fa-bullseye",        color: "#4ade80" },
+    { value: "37%",   label: "Latency Reduction (NLP)",    icon: "fas fa-tachometer-alt",  color: "#f97316" },
+    { value: "9.744", label: "CGPA — Top of Class",        icon: "fas fa-graduation-cap",  color: "#facc15" },
+    { value: "20+",   label: "Real-Time FPS (YOLOv8)",     icon: "fas fa-video",           color: "#ef4444" },
+    { value: "0.22",  label: "BLEU-4 (Image Captioning)",  icon: "fas fa-image",           color: "#c084fc" }
+  ];
+  const cards = metrics.map((m,i)=>`
+    <div class="metric-card reveal reveal-delay-${Math.min(i,4)}">
+      <div style="font-size:20px;margin-bottom:8px;"><i class="${m.icon}" style="color:${m.color};"></i></div>
+      <div class="display" style="font-size:28px;font-weight:800;background:linear-gradient(135deg,${m.color},#c084fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:6px;">${m.value}</div>
+      <div style="font-size:12px;color:var(--muted);">${m.label}</div>
+    </div>`).join('');
+  return `
+  <section style="padding:80px 32px;background:var(--bg);">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:48px;" class="reveal">
+        <p class="sec-label">By the Numbers</p>
+        <h2 class="display" style="font-size:clamp(30px,3.5vw,46px);font-weight:800;letter-spacing:-0.02em;">Technical <span class="grad">Metrics</span></h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;">${cards}</div>
+    </div>
+  </section>`;
+}
+
+/* ── PROJECTS ── */
+function renderProjects(d){
+  const filterCategories = [
+    { key: "all", label: "All Projects" },
+    { key: "cv",  label: "Computer Vision" },
+    { key: "dl",  label: "Deep Learning" },
+    { key: "cloud", label: "Cloud / AWS" },
+    { key: "nlp",   label: "NLP" },
+  ];
+  const filterBtns = filterCategories.map((f,i)=>
+    `<button class="filter-btn${i===0?' active':''}" onclick="filterProjects('${f.key}',this)">${f.label}</button>`
+  ).join('');
+
+  const cards = d.projects.map((p,i)=>{
+    const tags = p.tags.map(t=>`<span class="tag">${t}</span>`).join('');
+    const isFeaturedCV  = p.category === 'cv'  && p.featured;
+    const isFeaturedDL  = p.category === 'dl'  && p.featured;
+    const isFeatured    = p.featured;
+    const span   = isFeatured ? 'grid-column:span 2;' : '';
+    const imgH   = isFeatured ? '240px' : '180px';
+    const pad    = isFeatured ? '28px' : '22px';
+    const titleSz= isFeatured ? '22px' : '18px';
+    const delay  = `reveal-delay-${Math.min(i,4)}`;
+
+    // Special glow colors per category
+    const categoryGlow = {
+      cv:    'rgba(239,68,68,0.08)',
+      dl:    'rgba(139,92,246,0.08)',
+      cloud: 'rgba(34,211,238,0.08)',
+      nlp:   'rgba(99,102,241,0.08)',
+    }[p.category] || 'rgba(99,102,241,0.08)';
+
+    const categoryAccent = {
+      cv:    'rgba(239,68,68,0.3)',
+      dl:    'rgba(139,92,246,0.3)',
+      cloud: 'rgba(34,211,238,0.3)',
+      nlp:   'rgba(99,102,241,0.3)',
+    }[p.category] || 'rgba(99,102,241,0.3)';
+
+    const archFlow = isFeatured && p.architecture ? `
+      <div style="margin-bottom:16px;">
+        <p style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px;">Architecture Flow</p>
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px;">
+          ${p.architecture.map((step,idx)=>`
+            <div class="arch-step" style="background:${categoryGlow};border-color:${categoryAccent};">${step}</div>
+            ${idx < p.architecture.length-1 ? '<span class="arch-arrow">→</span>' : ''}
+          `).join('')}
+        </div>
+      </div>` : '';
+
+    const featuredBadge = isFeatured ? `<div class="featured-badge">⭐ Featured</div>` : '';
+
+    return `
+    <div class="proj-card reveal ${delay}" style="${span}" data-category="${p.category}">
+      <div style="height:${imgH};overflow:hidden;position:relative;">
+        <img src="${p.image}" style="width:100%;height:100%;object-fit:cover;transition:transform 0.6s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(3,7,18,0.85));"></div>
+        <div style="position:absolute;top:14px;left:14px;" class="tag">${p.label}</div>
+        ${featuredBadge}
+      </div>
+      <div style="padding:${pad};">
+        <h3 class="display" style="font-size:${titleSz};font-weight:700;margin-bottom:8px;">${p.title}</h3>
+        <p style="font-size:13px;color:#64748b;line-height:1.8;margin-bottom:14px;">${p.desc}</p>
+        ${p.highlight ? `<p style="font-size:12px;color:#a5b4fc;margin-bottom:14px;font-weight:500;padding:8px 12px;background:${categoryGlow};border-radius:8px;border-left:3px solid ${categoryAccent};">✦ ${p.highlight}</p>` : ''}
+        ${archFlow}
+        <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:18px;">${tags}</div>
+        <div style="display:flex;gap:10px;">
+          <a href="${p.demo}" class="btn-primary" style="padding:10px 18px;font-size:13px;flex:1;justify-content:center;"><i class="fas fa-external-link-alt" style="font-size:11px;"></i> Demo</a>
+          <a href="${p.repo}" target="_blank" class="btn-ghost" style="padding:10px 18px;font-size:13px;flex:1;justify-content:center;"><i class="fab fa-github" style="font-size:13px;"></i> GitHub</a>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+
+  return `
+  <section id="projects" style="padding:120px 32px;background:var(--bg);" class="grid-bg">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div style="margin-bottom:48px;" class="reveal">
+        <p class="sec-label">What I've Built</p>
+        <h2 class="display" style="font-size:clamp(34px,4vw,50px);font-weight:800;letter-spacing:-0.02em;">Featured <span class="grad">Projects</span></h2>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:36px;" class="reveal reveal-delay-1">
+        ${filterBtns}
+      </div>
+      <div id="proj-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;">${cards}</div>
+    </div>
+  </section>`;
+}
+
+/* ── SKILLS ── */
+function renderSkills(d){
+  const cats = d.skillCategories.map((cat,i)=>{
+    const pills = cat.skills.map(s=>`
+      <div class="skill-pill">
+        <i class="${s.icon}" style="color:${s.color};width:18px;font-size:15px;"></i>
+        <span style="flex:1;">${s.name}</span>
+        <span style="font-size:11px;color:var(--muted);">${s.level}</span>
+      </div>`).join('');
+    return `
+    <div class="reveal reveal-delay-${i} glass" style="padding:26px;border-radius:20px;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;">
+        <div style="width:40px;height:40px;border-radius:10px;background:${cat.color};display:flex;align-items:center;justify-content:center;font-size:18px;">${cat.icon}</div>
+        <h3 style="font-weight:700;font-size:16px;">${cat.title}</h3>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:9px;">${pills}</div>
+    </div>`;
+  }).join('');
+  return `
+  <section id="skills" style="padding:120px 32px;background:var(--surface);">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div style="margin-bottom:60px;" class="reveal">
+        <p class="sec-label">Technical Stack</p>
+        <h2 class="display" style="font-size:clamp(34px,4vw,50px);font-weight:800;letter-spacing:-0.02em;">Skills &amp; <span class="grad">Technologies</span></h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;">${cats}</div>
+    </div>
+  </section>`;
+}
+
+/* ── JOURNEY ── */
+function renderJourney(d){
+  const items = d.journey.map((j,i)=>{
+    const tags = j.tags.length ? `<div style="display:flex;flex-wrap:wrap;gap:7px;margin-top:14px;">${j.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>` : '';
+    const isLast = i === d.journey.length-1;
+    return `
+    <div style="position:relative;margin-bottom:${isLast?'0':'44px'};" class="reveal reveal-delay-${Math.min(i,4)}">
+      <div style="position:absolute;left:-40px;top:5px;width:13px;height:13px;border-radius:50%;background:${j.dotColor};border:2px solid rgba(255,255,255,0.15);box-shadow:0 0 16px ${j.glowColor};"></div>
+      <div class="glass" style="padding:26px;border-radius:20px;${isLast?'border-color:rgba(74,222,128,0.2);':''}">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:10px;">
+          <h3 class="display" style="font-size:19px;font-weight:700;">${j.title}</h3>
+          <span style="font-size:12px;color:var(--muted);background:rgba(255,255,255,0.05);padding:4px 12px;border-radius:100px;border:1px solid var(--border);white-space:nowrap;">${j.period}</span>
+        </div>
+        <p style="font-size:13px;color:${j.accent};font-weight:500;margin-bottom:10px;">${j.org}</p>
+        <p style="font-size:14px;color:var(--muted);line-height:1.8;">${j.desc}</p>
+        ${tags}
+      </div>
+    </div>`;
+  }).join('');
+  return `
+  <section id="journey" style="padding:120px 32px;background:var(--bg);">
+    <div style="max-width:860px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:64px;" class="reveal">
+        <p class="sec-label">Background</p>
+        <h2 class="display" style="font-size:clamp(34px,4vw,50px);font-weight:800;letter-spacing:-0.02em;">My <span class="grad">Journey</span></h2>
+      </div>
+      <div style="position:relative;padding-left:40px;">
+        <div style="position:absolute;left:6px;top:8px;bottom:0;width:1px;background:linear-gradient(to bottom,var(--indigo),rgba(99,102,241,0.1));"></div>
+        ${items}
+      </div>
+    </div>
+  </section>`;
+}
+
+/* ── WHY HIRE ME ── */
+function renderWhyHireMe(d){
+  const items = d.whyHireMe.map((item,i)=>`
+    <div class="hire-item reveal reveal-delay-${Math.min(i,4)}">
+      <div style="width:24px;height:24px;border-radius:50%;background:rgba(74,222,128,0.15);border:1px solid rgba(74,222,128,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <i class="fas fa-check" style="color:#4ade80;font-size:11px;"></i>
+      </div>
+      <span style="font-size:14px;font-weight:500;">${item}</span>
+    </div>`).join('');
+  return `
+  <section style="padding:80px 32px 120px;background:var(--surface);">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div id="hire-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
+        <div class="reveal">
+          <p class="sec-label">Value Proposition</p>
+          <h2 class="display" style="font-size:clamp(30px,3.5vw,46px);font-weight:800;letter-spacing:-0.02em;margin-bottom:18px;line-height:1.1;">Why <span class="grad">Hire Me?</span></h2>
+          <p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:32px;">I combine strong academic fundamentals with hands-on project experience — building AI systems, computer vision pipelines, and cloud applications that are production-ready from day one.</p>
+          <div style="display:flex;gap:14px;flex-wrap:wrap;">
+            <a href="#contact" class="btn-primary">Let's Talk</a>
+            <a href="#projects" class="btn-ghost">See Projects</a>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;">${items}</div>
+      </div>
+    </div>
+  </section>`;
+}
+
+/* ── CERTIFICATIONS ── */
+function renderCerts(d){
+  const certs = d.certifications.map((c,i)=>`
+    <div class="cert-badge reveal reveal-delay-${Math.min(i,4)}">
+      <div style="width:46px;height:46px;border-radius:12px;background:${c.color};border:1px solid ${c.border};display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">${c.icon}</div>
+      <div>
+        <div style="font-weight:600;font-size:14px;margin-bottom:3px;">${c.title}</div>
+        <div style="font-size:12px;color:var(--muted);">${c.issuer}</div>
+      </div>
+    </div>`).join('');
+  return `
+  <section id="certs" style="padding:80px 32px 120px;background:var(--bg);">
+    <div style="max-width:900px;margin:0 auto;">
+      <div style="margin-bottom:48px;" class="reveal">
+        <p class="sec-label">Credentials</p>
+        <h2 class="display" style="font-size:clamp(34px,4vw,50px);font-weight:800;letter-spacing:-0.02em;"><span class="grad">Certifications</span></h2>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px;">${certs}</div>
+    </div>
+  </section>`;
+}
+
+/* ── CONTACT ── */
+function renderContact(d){
+  return `
+  <section id="contact" style="padding:120px 32px;background:var(--surface);">
+    <div style="max-width:1000px;margin:0 auto;">
+      <div style="display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:start;" id="contact-grid">
+        <div class="reveal">
+          <p class="sec-label">Get In Touch</p>
+          <h2 class="display" style="font-size:clamp(34px,4vw,46px);font-weight:800;letter-spacing:-0.02em;margin-bottom:18px;line-height:1.1;">Let's build<br>something <span class="grad">great</span><br>together</h2>
+          <p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:32px;">${d.contactBio}</p>
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            <a href="mailto:${d.email}" style="display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit;transition:opacity 0.3s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
+              <div style="width:42px;height:42px;border-radius:11px;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.2);display:flex;align-items:center;justify-content:center;"><i class="fas fa-envelope" style="color:#f87171;font-size:15px;"></i></div>
+              <div><div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;">Email</div><div style="font-size:14px;font-weight:500;">${d.email}</div></div>
+            </a>
+            <a href="${d.linkedin}" target="_blank" style="display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit;transition:opacity 0.3s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
+              <div style="width:42px;height:42px;border-radius:11px;background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.2);display:flex;align-items:center;justify-content:center;"><i class="fab fa-linkedin" style="color:#60a5fa;font-size:15px;"></i></div>
+              <div><div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;">LinkedIn</div><div style="font-size:14px;font-weight:500;">linkedin.com/in/sahilbhoir1769</div></div>
+            </a>
+            <a href="${d.github}" target="_blank" style="display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit;transition:opacity 0.3s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
+              <div style="width:42px;height:42px;border-radius:11px;background:rgba(255,255,255,0.05);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;"><i class="fab fa-github" style="color:#e2e8f0;font-size:15px;"></i></div>
+              <div><div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;">GitHub</div><div style="font-size:14px;font-weight:500;">github.com/SahilBh01r1769</div></div>
+            </a>
+          </div>
+        </div>
+        <div class="glass reveal reveal-delay-1" style="padding:34px;border-radius:22px;">
+          <h3 class="display" style="font-size:19px;font-weight:700;margin-bottom:22px;">Send a Message</h3>
+          <form id="contact-form" onsubmit="handleSubmit(event)" style="display:flex;flex-direction:column;gap:14px;">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+              <div>
+                <label style="font-size:11px;color:var(--muted);display:block;margin-bottom:7px;text-transform:uppercase;letter-spacing:0.04em;">First Name</label>
+                <input type="text" placeholder="Rahul" class="form-input" required>
+              </div>
+              <div>
+                <label style="font-size:11px;color:var(--muted);display:block;margin-bottom:7px;text-transform:uppercase;letter-spacing:0.04em;">Last Name</label>
+                <input type="text" placeholder="Sharma" class="form-input">
+              </div>
+            </div>
+            <div>
+              <label style="font-size:11px;color:var(--muted);display:block;margin-bottom:7px;text-transform:uppercase;letter-spacing:0.04em;">Email</label>
+              <input type="email" placeholder="rahul@company.com" class="form-input" required>
+            </div>
+            <div>
+              <label style="font-size:11px;color:var(--muted);display:block;margin-bottom:7px;text-transform:uppercase;letter-spacing:0.04em;">Subject</label>
+              <input type="text" placeholder="Job Opportunity / Collaboration / Project" class="form-input">
+            </div>
+            <div>
+              <label style="font-size:11px;color:var(--muted);display:block;margin-bottom:7px;text-transform:uppercase;letter-spacing:0.04em;">Message</label>
+              <textarea placeholder="Tell me about your project or opportunity..." class="form-input" rows="4" style="resize:vertical;"></textarea>
+            </div>
+            <button type="submit" class="btn-primary" style="justify-content:center;">
+              <i class="fas fa-paper-plane" style="font-size:12px;"></i> Send Message
+            </button>
+          </form>
+          <div id="form-success" style="display:none;text-align:center;padding:24px;">
+            <div style="font-size:36px;margin-bottom:10px;">🎉</div>
+            <h4 style="font-weight:700;margin-bottom:8px;">Message Sent!</h4>
+            <p style="color:var(--muted);font-size:14px;">Thanks for reaching out. I'll get back to you within 24 hours.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>`;
+}
+
+/* ── FOOTER ── */
+function renderFooter(d){
+  return `
+  <footer style="padding:36px 32px;border-top:1px solid var(--border);background:var(--bg);">
+    <div style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;">
+      <span class="display grad" style="font-size:20px;font-weight:800;">${d.name.split(' ').map(w=>w[0]).join('')}</span>
+      <p style="font-size:13px;color:var(--muted);">${d.footerText}</p>
+      <div style="display:flex;gap:18px;">
+        <a href="${d.github}"   target="_blank" style="color:var(--muted);font-size:18px;transition:color 0.3s;" onmouseover="this.style.color='#e2e8f0'" onmouseout="this.style.color='#64748b'"><i class="fab fa-github"></i></a>
+        <a href="${d.linkedin}" target="_blank" style="color:var(--muted);font-size:18px;transition:color 0.3s;" onmouseover="this.style.color='#60a5fa'" onmouseout="this.style.color='#64748b'"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:${d.email}"             style="color:var(--muted);font-size:18px;transition:color 0.3s;" onmouseover="this.style.color='#f87171'" onmouseout="this.style.color='#64748b'"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+  </footer>`;
+}
+
+/* ── RENDER ALL ── */
+document.getElementById('app').innerHTML =
+  renderHero(DATA) +
+  renderAbout(DATA) +
+  renderMetrics(DATA) +
+  renderProjects(DATA) +
+  renderSkills(DATA) +
+  renderJourney(DATA) +
+  renderWhyHireMe(DATA) +
+  renderCerts(DATA) +
+  renderContact(DATA) +
+  renderFooter(DATA);
+
+/* ── INIT ── */
+document.title = DATA.title;
+document.getElementById('nav-logo').textContent = DATA.name.split(' ').map(w=>w[0]).join('');
+
+new Typed('#typing', { strings: DATA.typingStrings, typeSpeed: 55, backSpeed: 35, loop: true });
+
+const banner = document.getElementById('tech-banner');
+if(banner){
+  const all = [...DATA.techBanner, ...DATA.techBanner];
+  banner.innerHTML = all.map(t=>`
+    <div style="display:flex;align-items:center;gap:24px;padding:0 24px;color:var(--muted);font-size:13px;font-weight:500;letter-spacing:0.05em;white-space:nowrap;">
+      <span style="width:4px;height:4px;border-radius:50%;background:rgba(99,102,241,0.4);flex-shrink:0;"></span>
+      ${t}
+    </div>`).join('');
+}
+
+document.getElementById('cursor-glow').style.display = 'block';
+document.addEventListener('mousemove', e => {
+  const g = document.getElementById('cursor-glow');
+  g.style.left = e.clientX + 'px'; g.style.top = e.clientY + 'px';
+});
+
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('navbar');
+  const cta = document.getElementById('nav-cta');
+  if(window.scrollY > 80){ nav.classList.add('scrolled'); cta.style.display='inline-flex'; }
+  else { nav.classList.remove('scrolled'); cta.style.display='none'; }
+});
+
+const revObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
+
+/* ── PROJECT FILTER ── */
+function filterProjects(category, btn){
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  const grid = document.getElementById('proj-grid');
+  const cards = grid.querySelectorAll('.proj-card');
+  let visibleCount = 0;
+
+  cards.forEach(card => {
+    const cat = card.getAttribute('data-category');
+    const match = category === 'all' || cat === category;
+    card.style.display = match ? '' : 'none';
+    if(match){
+      // Reset span for non-featured when filtering
+      const isSpanned = card.style.gridColumn === 'span 2';
+      if(category !== 'all' && isSpanned){ card.style.gridColumn = 'span 1'; }
+      else if(category === 'all' && card.querySelector('[style*="featured-badge"]')){ card.style.gridColumn = 'span 2'; }
+      visibleCount++;
+    }
+  });
+
+  // Rebuild grid layout after filter
+  if(category !== 'all'){
+    grid.style.gridTemplateColumns = visibleCount === 1 ? '1fr' : 'repeat(2,1fr)';
+  } else {
+    fixLayout();
+  }
+}
+
+function handleSubmit(e){
+  e.preventDefault();
+  document.getElementById('contact-form').style.display='none';
+  document.getElementById('form-success').style.display='block';
+}
+function toggleMenu(){ document.getElementById('mobile-menu').classList.add('open'); }
+function closeMobileMenu(){ document.getElementById('mobile-menu').classList.remove('open'); }
+document.getElementById('close-menu').onclick = closeMobileMenu;
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href');
+    if(id==='#') return;
+    const target = document.querySelector(id);
+    if(target){ e.preventDefault(); target.scrollIntoView({ behavior:'smooth' }); }
+  });
+});
+
+function fixLayout(){
+  const hg = document.getElementById('hero-grid');
+  const hc = document.getElementById('hero-card');
+  const ag = document.getElementById('about-grid');
+  const cg = document.getElementById('contact-grid');
+  const pg = document.getElementById('proj-grid');
+  const hireG = document.getElementById('hire-grid');
+  const ham = document.getElementById('ham-btn');
+  const w = window.innerWidth;
+
+  if(hg){ hg.style.gridTemplateColumns = w < 1024 ? '1fr' : '1fr 420px'; }
+  if(hc){ hc.style.display = w < 1024 ? 'none' : 'flex'; }
+  if(ag){ ag.style.gridTemplateColumns = w < 900 ? '1fr' : '1fr 1fr'; }
+  if(cg){ cg.style.gridTemplateColumns = w < 900 ? '1fr' : '1fr 1.2fr'; }
+  if(hireG){ hireG.style.gridTemplateColumns = w < 900 ? '1fr' : '1fr 1fr'; }
+  if(pg && w < 900){
+    pg.style.gridTemplateColumns = '1fr';
+    pg.querySelectorAll('[style*="grid-column"]').forEach(el => el.style.gridColumn='span 1');
+  } else if(pg){
+    pg.style.gridTemplateColumns = 'repeat(3,1fr)';
+  }
+  if(ham){ ham.style.display = w < 768 ? 'flex' : 'none'; }
+}
+fixLayout();
+window.addEventListener('resize', fixLayout);
+</script>
+</body>
+</html>
