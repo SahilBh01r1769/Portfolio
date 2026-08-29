@@ -4,6 +4,7 @@ const mobileToggle = document.getElementById('mobileToggle');
 const filterButtons = [...document.querySelectorAll('.filter-btn')];
 const projects = [...document.querySelectorAll('.project')];
 const modal = document.getElementById('projectModal');
+const modalPanel = modal?.querySelector('.modal-panel');
 const modalTitle = document.getElementById('modalTitle');
 const modalKicker = document.getElementById('modalKicker');
 const modalSummary = document.getElementById('modalSummary');
@@ -12,73 +13,82 @@ const modalTradeoff = document.getElementById('modalTradeoff');
 const modalArchitecture = document.getElementById('modalArchitecture');
 const modalActions = document.getElementById('modalActions');
 
+const MODAL_THEMES = ['modal-warm','modal-ink','modal-acid','modal-blue','modal-violet','modal-paper','modal-clay'];
+
 const PROJECT_DETAILS = {
   receipt: {
+    theme: 'modal-warm',
     kicker: 'Cloud / Document AI',
     title: 'Serverless Receipt Processor',
-    summary: 'An authenticated AWS workflow that turns uploaded receipt images into structured, categorised expense records while keeping file transfer, OCR, orchestration and persistence as separate responsibilities.',
-    focus: 'The main engineering work is the serverless architecture: Cognito authentication, presigned S3 upload, Textract OCR, Step Functions orchestration, Lambda processing and user-scoped DynamoDB access.',
-    tradeoff: 'The system favours clear service boundaries and managed AWS components over a simpler single-service backend. That adds architecture overhead, but makes each stage independently understandable and replaceable.',
+    summary: 'An authenticated AWS workflow that turns uploaded receipt images into structured expense records. I built it as a set of small serverless steps rather than one large backend function.',
+    focus: 'The main work was connecting Cognito authentication, presigned S3 uploads, Textract OCR, Step Functions, Lambda and DynamoDB while keeping every expense tied to the correct user.',
+    tradeoff: 'Using several managed AWS services makes the flow easier to separate and reason about, but it also means more moving parts than a single backend service.',
     architecture: ['Browser', 'Cognito', 'Presigned S3', 'Step Functions', 'Textract', 'Lambda parsing', 'DynamoDB'],
     demo: 'https://d3uo3z77ak8ix1.cloudfront.net/',
     repo: 'https://github.com/SahilBh01r1769/serverless-receipt-processor'
   },
   violence: {
+    theme: 'modal-ink',
     kicker: 'Computer Vision / Real-time',
     title: 'Real-Time Violence Detection',
-    summary: 'A real-time monitoring application built around a public pretrained YOLOv8 violence checkpoint, with the surrounding engineering focused on video input, temporal filtering, alerting and inspection.',
-    focus: 'OpenCV handles camera, RTSP and file sources; detections are passed through temporal consistency and cooldown logic before screenshots, history and email or WhatsApp alerts are triggered. FastAPI and Streamlit expose the system.',
-    tradeoff: 'The model is intentionally treated as a pretrained dependency rather than a claimed custom training result. The project therefore demonstrates integration and real-time application engineering more than novel computer-vision research.',
+    summary: 'A real-time monitoring application built around a public pretrained YOLOv8 violence checkpoint. The project focuses on everything needed to turn model detections into a usable monitoring workflow.',
+    focus: 'OpenCV handles camera, RTSP and video-file inputs. Detections pass through temporal consistency and cooldown logic before screenshots, history and alerts are triggered, with FastAPI and Streamlit around the pipeline.',
+    tradeoff: 'The model itself is pretrained, so I do not present this as custom computer-vision research. The value of the project is in real-time integration, filtering and application behaviour.',
     architecture: ['Video source', 'OpenCV', 'YOLOv8', 'Temporal filter', 'Alert cooldown', 'Screenshot/history', 'FastAPI / Streamlit'],
     demo: 'https://violencedetectionai.streamlit.app/',
     repo: 'https://github.com/SahilBh01r1769/violence_detection'
   },
   maintenance: {
+    theme: 'modal-acid',
     kicker: 'Industrial ML / Time Series',
     title: 'MetroPT-3 Predictive Maintenance',
-    summary: 'A reproducible predictive-maintenance pipeline over more than 1.5 million compressor telemetry rows, designed around cadence-aware preprocessing and evaluation that avoids optimistic leakage.',
-    focus: 'The pipeline validates and quarantines data, segments on timestamp gaps, generates cadence-aware windows, engineers 38 features, constructs failure-horizon labels and evaluates chronologically on a held-out failure episode.',
-    tradeoff: 'The final-event baseline performs poorly, but that result is kept visible. The project prioritises a defensible evaluation setup over a flattering random split that could overstate predictive ability.',
+    summary: 'A predictive-maintenance pipeline over more than 1.5 million compressor telemetry rows. Most of the work is in getting the time-series preparation and evaluation right before trusting a model result.',
+    focus: 'The pipeline validates and quarantines data, segments around timestamp gaps, creates cadence-aware windows, builds 38 features, labels future failure windows and evaluates on a chronological holdout.',
+    tradeoff: 'The final baseline is weak, and I keep that result visible. I would rather show a realistic evaluation than improve the number with a split that leaks information across time.',
     architecture: ['Raw telemetry', 'Validation', 'Gap segmentation', 'Windowing', '38 features', 'Failure-horizon labels', 'RF baseline', 'Chronological holdout'],
     demo: 'https://metropt3-predictive-maintenance.streamlit.app/',
     repo: 'https://github.com/SahilBh01r1769/metropt3-predictive-maintenance'
   },
   audio: {
+    theme: 'modal-blue',
     kicker: 'AWS / Streaming & Events',
     title: 'Signal — Audio Transcription & Sentiment',
-    summary: 'A serverless speech application with both near-real-time browser interaction and asynchronous file processing, using different AWS event patterns for each path.',
-    focus: 'The live path moves microphone chunks over API Gateway WebSockets to Transcribe and Comprehend with DynamoDB-backed session state. The batch path uses S3, Transcribe jobs and EventBridge completion events.',
-    tradeoff: 'The live implementation uses short independent streaming chunks rather than one long-lived Transcribe stream. That fits the Lambda-based design, but it is a meaningful architectural compromise compared with a persistent streaming service.',
+    summary: 'A serverless speech application with two paths: live browser audio and asynchronous file transcription. Both use AWS-managed services, but the event flow is different for each.',
+    focus: 'The live path sends microphone chunks through API Gateway WebSockets to Lambda, Transcribe and Comprehend, with DynamoDB storing session state. Batch uploads use S3, Transcribe jobs and EventBridge completion events.',
+    tradeoff: 'The live path uses short independent audio chunks instead of one persistent Transcribe stream. That fits the Lambda design, but it is a compromise compared with a long-lived streaming service.',
     architecture: ['Browser mic', 'WebSocket API', 'Lambda', 'Transcribe', 'Comprehend', 'DynamoDB', 'Browser updates'],
     demo: 'https://d2h6neawct2uig.cloudfront.net/',
     repo: 'https://github.com/SahilBh01r1769/aws-audio-transcription-sentiment'
   },
   caption: {
+    theme: 'modal-violet',
     kicker: 'Vision-Language / Deep Learning',
     title: 'CaptionLab — Explainable Image Captioning',
-    summary: 'A research-oriented captioning project that keeps a ResNet50/LSTM baseline and extends it with spatial features, additive attention, beam search and token-level inspection.',
-    focus: 'The custom architecture preserves the CNN feature grid, projects spatial features and lets the decoder attend to different regions for each generated word. Training includes staged CNN fine-tuning, coverage regularisation and image-level splitting.',
-    tradeoff: 'Attention maps are presented as diagnostic signals rather than causal explanations. The repository also avoids claiming evaluation scores that have not been verified against a committed checkpoint.',
+    summary: 'An image-captioning project that starts with a ResNet50/LSTM baseline and then adds spatial features, additive attention, beam search and token-level inspection.',
+    focus: 'The custom path keeps the CNN feature grid instead of collapsing it immediately, then lets the decoder attend to different regions while generating words. The training setup also includes staged CNN fine-tuning and image-level splitting.',
+    tradeoff: 'The attention maps are useful for inspection, but I treat them as diagnostics rather than proof of why the model made a decision. I also avoid publishing unverified evaluation scores.',
     architecture: ['Image', 'ResNet50 grid', '1×1 projection', 'Additive attention', 'LSTM decoder', 'Beam / greedy decode', 'Caption + attention'],
     demo: 'https://image-captioningdemo.streamlit.app/',
     repo: 'https://github.com/SahilBh01r1769/image-captioning'
   },
   textscope: {
-    kicker: 'NLP / Evidence-aware UX',
+    theme: 'modal-paper',
+    kicker: 'NLP / Source-grounded analysis',
     title: 'TextScope — Evidence-Aware NLP',
-    summary: 'A document analysis workbench that keeps one shared source-evidence layer beneath summarisation, entities, salient concepts, sentiment, syntax and extractive question answering.',
-    focus: 'spaCy, BART and RoBERTa are orchestrated through one shared NLP core. Entities and concepts keep sentence references, QA returns supporting source text or abstains, and summary diagnostics expose information coverage.',
-    tradeoff: 'The project uses pretrained language models instead of custom training. Its contribution is the evidence-aware orchestration and interface design, with an emphasis on traceability rather than pretending confidence equals factual correctness.',
+    summary: 'A document-analysis workbench that brings summarisation, entities, concepts, sentiment, syntax and question answering into one interface while keeping links back to the source text.',
+    focus: 'spaCy, BART and RoBERTa sit behind one shared NLP layer. Entities and concepts retain sentence references, QA returns supporting text or abstains, and summary diagnostics show what information may have been lost.',
+    tradeoff: 'The language models are pretrained. The interesting part for me was making their outputs easier to inspect and verify instead of presenting confidence scores as if they guaranteed correctness.',
     architecture: ['Source document', 'Sentence evidence layer', 'spaCy / sentiment', 'BART summary', 'RoBERTa QA', 'Diagnostics', 'Streamlit / Flask'],
     demo: 'https://nlp-webapp.streamlit.app/',
     repo: 'https://github.com/SahilBh01r1769/textscope-nlp'
   },
   mythos: {
+    theme: 'modal-clay',
     kicker: 'Knowledge Graph / Data Visualisation',
     title: 'Mythos Network — Indo-European Gods',
-    summary: 'An interactive computational exploration of mythological similarity that combines curated trait vectors with linguistic cognates, historical context, graph traversal and map-based exploration.',
-    focus: 'Each deity is represented by a curated 16-dimensional trait vector. Cosine-style similarity and weighted overlap drive comparisons, while D3, Leaflet and Web Workers support graph, map, archetype and shortest-path views.',
-    tradeoff: 'The trait vectors are explicitly heuristic and curated rather than objective historical measurements. Linguistic cognacy is kept conceptually separate from computational similarity to avoid conflating the two.',
+    summary: 'An interactive way to explore similarities between deities using curated traits alongside linguistic cognates, historical context, graph paths and map views.',
+    focus: 'Each deity has a curated 16-dimensional trait vector. Similarity calculations support the comparisons, while D3, Leaflet and a Web Worker power the graph, map, archetype and path views.',
+    tradeoff: 'The trait weights are my curated heuristics, not objective historical measurements. Linguistic cognacy is kept separate from functional similarity so the interface does not imply that two similar gods must share an etymological origin.',
     architecture: ['Curated deity data', '16-D traits', 'Similarity engine', 'Web Worker', 'D3 graph', 'Leaflet map', 'Search / archetypes / paths'],
     demo: 'https://sahilbh01r1769.github.io/indo_european_gods/',
     repo: 'https://github.com/SahilBh01r1769/indo_european_gods'
@@ -120,6 +130,8 @@ document.getElementById('year').textContent = new Date().getFullYear();
 function openProjectModal(key) {
   const data = PROJECT_DETAILS[key];
   if (!data || !modal) return;
+  modalPanel?.classList.remove(...MODAL_THEMES);
+  if (data.theme) modalPanel?.classList.add(data.theme);
   modalKicker.textContent = data.kicker;
   modalTitle.textContent = data.title;
   modalSummary.textContent = data.summary;
