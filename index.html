@@ -3,278 +3,99 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Sahil Bhoir — Computer Engineering graduate building machine learning, computer vision, NLP and AWS cloud systems." />
-  <meta name="theme-color" content="#07111f" />
+  <meta name="description" content="Sahil Bhoir — Computer Engineering graduate building applied AI, machine learning and cloud systems." />
+  <meta name="theme-color" content="#f2efe8" />
   <meta property="og:title" content="Sahil Bhoir — Engineering Portfolio" />
-  <meta property="og:description" content="Machine learning, computer vision, NLP and cloud engineering projects." />
+  <meta property="og:description" content="Applied AI, ML systems, cloud architecture and software engineering." />
   <title>Sahil Bhoir — Engineering Portfolio</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="nav-wrap" id="nav">
-    <div class="shell nav">
-      <a class="brand" href="#top" aria-label="Home">
-        <span class="brand-mark">SB</span>
-        <span>Sahil Bhoir</span>
-      </a>
+  <header class="site-nav" id="nav">
+    <div class="shell nav-inner">
+      <a class="brand" href="#top"><span class="brand-dot"></span>Sahil Bhoir</a>
       <nav class="nav-links" id="navLinks" aria-label="Primary navigation">
         <a href="#work">Work</a>
-        <a href="#skills">Skills</a>
-        <a href="#background">Background</a>
+        <a href="#writing">Writing</a>
+        <a href="#about">About</a>
         <a href="#contact">Contact</a>
-        <a class="nav-cta" href="https://github.com/SahilBh01r1769" target="_blank" rel="noreferrer">GitHub ↗</a>
+        <a class="nav-button" href="resume.pdf" download="Sahil_Bhoir_Resume.pdf">Resume ↓</a>
       </nav>
-      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
     </div>
   </header>
 
   <main id="top">
-    <section class="hero">
-      <div class="shell hero-grid">
-        <div class="reveal">
-          <div class="eyebrow">Computer Engineering · AI/ML · Cloud</div>
-          <h1>I build <span class="accent">systems that think, stream and scale.</span></h1>
-          <p class="hero-copy">
-            Computer Engineering graduate from Vidyalankar Institute of Technology with a minor in Artificial Intelligence & Machine Learning. I work across machine learning, computer vision, NLP and serverless AWS systems — with an emphasis on end-to-end engineering, reproducibility and clear technical trade-offs.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#work">Explore selected work ↓</a>
-            <a class="btn btn-secondary" href="mailto:sahilbhoir151@gmail.com">sahilbhoir151@gmail.com</a>
-            <a class="btn btn-secondary" href="https://www.linkedin.com/in/sahil-bhoir-2a8750387/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
-          </div>
-          <div class="hero-meta">
-            <span><i class="dot"></i> Open to graduate & entry-level opportunities</span>
-            <span>Thane, Maharashtra</span>
-          </div>
+    <section class="hero shell">
+      <div class="hero-main reveal">
+        <p class="overline">Computer Engineering · AI/ML · Cloud</p>
+        <h1>Building useful systems at the edge of <em>software</em> and <em>intelligence.</em></h1>
+        <p class="hero-copy">I’m a Computer Engineering graduate from Mumbai with a minor in AI & ML. I build end-to-end projects across machine learning, computer vision, NLP and AWS — with a bias toward systems that can be inspected, tested and explained.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#work">View selected work</a>
+          <a class="button ghost" href="resume.pdf" download="Sahil_Bhoir_Resume.pdf">Download resume</a>
         </div>
+      </div>
+      <aside class="hero-side reveal">
+        <div class="availability"><span></span> Open to graduate & entry-level roles</div>
+        <div class="side-stack">
+          <div><small>Based in</small><strong>Thane · Mumbai</strong></div>
+          <div><small>Degree</small><strong>B.E. Computer Engineering</strong></div>
+          <div><small>CGPA</small><strong>9.43 / 10</strong></div>
+          <div><small>Focus</small><strong>Applied AI · Cloud · Software</strong></div>
+        </div>
+        <div class="social-row">
+          <a href="https://github.com/SahilBh01r1769" target="_blank" rel="noreferrer">GitHub ↗</a>
+          <a href="https://www.linkedin.com/in/sahil-bhoir-2a8750387/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+          <a href="https://medium.com/@sahilbhoir151" target="_blank" rel="noreferrer">Medium ↗</a>
+        </div>
+      </aside>
+    </section>
 
-        <aside class="profile-card reveal" aria-label="Profile snapshot">
-          <div class="profile-top">
-            <span class="mono-chip">Profile / 2026</span>
-            <span class="status"><i class="dot"></i> Available</span>
-          </div>
-          <h3>Engineer first. AI where it earns its place.</h3>
-          <p>My portfolio spans industrial ML, real-time vision, document intelligence, event-driven cloud systems and experimental data visualisation.</p>
-          <div class="profile-stat-grid">
-            <div class="profile-stat"><strong>9.43</strong><span>CGPA / 10</span></div>
-            <div class="profile-stat"><strong>7</strong><span>Core projects</span></div>
-            <div class="profile-stat"><strong>AWS</strong><span>Certified CCP</span></div>
-            <div class="profile-stat"><strong>2025</strong><span>B.E. graduate</span></div>
-          </div>
-        </aside>
+    <section class="signal-strip">
+      <div class="shell signal-grid reveal">
+        <span>ML SYSTEMS</span><span>COMPUTER VISION</span><span>NLP</span><span>SERVERLESS AWS</span><span>DATA VISUALISATION</span><span>APIs & CI</span>
       </div>
     </section>
 
-    <section class="section-sm">
-      <div class="shell capabilities reveal">
-        <article class="capability">
-          <span class="num">01 / ML SYSTEMS</span>
-          <h3>Modeling with honest evaluation</h3>
-          <p>Time-series preprocessing, leakage-aware splits, feature pipelines, inference and model diagnostics.</p>
-        </article>
-        <article class="capability">
-          <span class="num">02 / VISION & NLP</span>
-          <h3>Applied AI interfaces</h3>
-          <p>Computer vision, image captioning and evidence-aware NLP wrapped in usable, inspectable workflows.</p>
-        </article>
-        <article class="capability">
-          <span class="num">03 / CLOUD</span>
-          <h3>Serverless architecture</h3>
-          <p>Lambda, API Gateway, S3, DynamoDB, Step Functions, EventBridge, Transcribe, Textract and CloudFront.</p>
-        </article>
-        <article class="capability">
-          <span class="num">04 / ENGINEERING</span>
-          <h3>From prototype to system</h3>
-          <p>APIs, testing, CI, Docker, data validation, state management and practical deployment constraints.</p>
-        </article>
+    <section class="section shell" id="work">
+      <div class="section-intro reveal">
+        <p class="overline">01 / Selected work</p>
+        <h2>Different problems. Different architectures.</h2>
+        <p>Seven projects spanning cloud systems, applied AI and exploratory software. Each card links to the live deployment and source.</p>
+      </div>
+
+      <div class="project-filter reveal" role="group" aria-label="Filter projects">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="ml">AI / ML</button>
+        <button class="filter-btn" data-filter="cloud">Cloud</button>
+        <button class="filter-btn" data-filter="software">Software / Data</button>
+      </div>
+
+      <div class="project-grid">
+        <article class="project project-xl warm reveal" data-category="cloud"><div class="project-top"><span>01 · CLOUD / DOCUMENT AI</span><span>AWS</span></div><div class="project-content"><h3>Serverless Receipt Processor</h3><p>Authenticated receipt ingestion with direct S3 upload, Textract OCR, Step Functions orchestration, parsing, categorisation and user-scoped DynamoDB storage.</p><div class="chips"><span>Lambda</span><span>Textract</span><span>Cognito</span><span>Step Functions</span></div></div><div class="project-links"><a href="https://d3uo3z77ak8ix1.cloudfront.net/" target="_blank" rel="noreferrer">Live demo ↗</a><a href="https://github.com/SahilBh01r1769/serverless-receipt-processor" target="_blank" rel="noreferrer">GitHub ↗</a></div></article>
+        <article class="project project-md ink reveal" data-category="ml"><div class="project-top"><span>02 · COMPUTER VISION</span><span>YOLO</span></div><div class="project-content"><h3>Real-Time Violence Detection</h3><p>Video-monitoring pipeline around a public pretrained YOLOv8 checkpoint, with OpenCV sources, temporal filtering, alerts, FastAPI and Streamlit.</p><div class="chips"><span>YOLOv8</span><span>OpenCV</span><span>FastAPI</span></div></div><div class="project-links"><a href="https://violencedetectionai.streamlit.app/" target="_blank" rel="noreferrer">Live demo ↗</a><a href="https://github.com/SahilBh01r1769/violence_detection" target="_blank" rel="noreferrer">GitHub ↗</a></div></article>
+        <article class="project project-md acid reveal" data-category="ml"><div class="project-top"><span>03 · INDUSTRIAL ML</span><span>1.5M+ rows</span></div><div class="project-content"><h3>MetroPT-3 Predictive Maintenance</h3><p>Leakage-aware predictive-maintenance pipeline with validation, gap segmentation, cadence-aware windows, engineered features and chronological evaluation.</p><div class="chips"><span>Time Series</span><span>Scikit-learn</span><span>Pandas</span></div></div><div class="project-links"><a href="https://metropt3-predictive-maintenance.streamlit.app/" target="_blank" rel="noreferrer">Live demo ↗</a><a href="https://github.com/SahilBh01r1769/metropt3-predictive-maintenance" target="_blank" rel="noreferrer">GitHub ↗</a></div></article>
+        <article class="project project-lg blue reveal" data-category="cloud"><div class="project-top"><span>04 · STREAMING / EVENTS</span><span>AWS</span></div><div class="project-content"><h3>Signal — Audio Transcription & Sentiment</h3><p>Browser microphone transcription over API Gateway WebSockets with Transcribe, Comprehend and DynamoDB, plus an asynchronous S3/EventBridge batch path.</p><div class="chips"><span>Transcribe</span><span>Comprehend</span><span>WebSockets</span><span>SAM</span></div></div><div class="project-links"><a href="https://d2h6neawct2uig.cloudfront.net/" target="_blank" rel="noreferrer">Live demo ↗</a><a href="https://github.com/SahilBh01r1769/aws-audio-transcription-sentiment" target="_blank" rel="noreferrer">GitHub ↗</a></div></article>
+        <article class="project project-sm violet reveal" data-category="ml"><div class="project-top"><span>05 · VISION-LANGUAGE</span><span>DL</span></div><div class="project-content"><h3>CaptionLab</h3><p>Explainable image captioning with ResNet50, LSTM decoding, additive visual attention, beam search and token-level inspection.</p><div class="chips"><span>PyTorch</span><span>Attention</span><span>ResNet50</span></div></div><div class="project-links"><a href="https://image-captioningdemo.streamlit.app/" target="_blank" rel="noreferrer">Live demo ↗</a><a href="https://github.com/SahilBh01r1769/image-captioning" target="_blank" rel="noreferrer">GitHub ↗</a></div></article>
+        <article class="project project-sm paper reveal" data-category="ml"><div class="project-top"><span>06 · NLP</span><span>Evidence-aware</span></div><div class="project-content"><h3>TextScope</h3><p>Document intelligence workbench for summarisation, NER, salient concepts, sentiment and grounded QA with source traceability.</p><div class="chips"><span>spaCy</span><span>BART</span><span>RoBERTa</span></div></div><div class="project-links"><a href="https://nlp-webapp.streamlit.app/" target="_blank" rel="noreferrer">Live demo ↗</a><a href="https://github.com/SahilBh01r1769/textscope-nlp" target="_blank" rel="noreferrer">GitHub ↗</a></div></article>
+        <article class="project project-lg clay reveal" data-category="software"><div class="project-top"><span>07 · KNOWLEDGE GRAPH</span><span>Experimental</span></div><div class="project-content"><h3>Mythos Network — Indo-European Gods</h3><p>Interactive graph of mythological similarity using curated 16-dimensional trait vectors, linguistic cognates, map views, archetypes and shortest similarity chains.</p><div class="chips"><span>D3.js</span><span>Leaflet</span><span>Web Workers</span><span>Graph Search</span></div></div><div class="project-links"><a href="https://sahilbh01r1769.github.io/indo_european_gods/" target="_blank" rel="noreferrer">Live demo ↗</a><a href="https://github.com/SahilBh01r1769/indo_european_gods" target="_blank" rel="noreferrer">GitHub ↗</a></div></article>
       </div>
     </section>
 
-    <section class="section" id="work">
-      <div class="shell">
-        <div class="section-head reveal">
-          <div>
-            <div class="kicker">Selected engineering work</div>
-            <h2>Projects with different problems — not seven versions of the same demo.</h2>
-          </div>
-          <p>Each project is presented around the engineering idea it demonstrates. No unsupported benchmark numbers, no pretending pretrained models were trained from scratch.</p>
-        </div>
+    <section class="section writing-section" id="writing"><div class="shell"><div class="section-intro reveal"><p class="overline">02 / Writing</p><h2>Thinking in public.</h2><p>Notes on AI systems, work and computational ideas beyond project READMEs.</p></div><div class="articles-grid">
+      <a class="article-card feature-article reveal" href="https://medium.com/@sahilbhoir151/agentic-ai-in-2026-from-generative-responses-to-autonomous-action-df6a471183ed?sharedUserId=sahilbhoir151" target="_blank" rel="noreferrer"><span class="article-num">01</span><div><small>Agentic AI</small><h3>Agentic AI in 2026: From Generative Responses to Autonomous Action</h3><p>How the shift from answering prompts to taking actions changes the way we think about AI systems.</p></div><span class="arrow">↗</span></a>
+      <a class="article-card reveal" href="https://medium.com/@sahilbhoir151/everyone-is-using-ai-agents-but-what-are-they-actually-good-for-88151b142ff9?sharedUserId=sahilbhoir151" target="_blank" rel="noreferrer"><span class="article-num">02</span><div><small>AI Agents</small><h3>Everyone Is Using AI Agents — But What Are They Actually Good For?</h3></div><span class="arrow">↗</span></a>
+      <a class="article-card reveal" href="https://medium.com/@sahilbhoir151/your-job-isnt-being-replaced-by-ai-it-s-being-split-in-two-c12173ef719a?sharedUserId=sahilbhoir151" target="_blank" rel="noreferrer"><span class="article-num">03</span><div><small>AI & Work</small><h3>Your Job Isn’t Being Replaced by AI. It’s Being Split in Two.</h3></div><span class="arrow">↗</span></a>
+      <a class="article-card reveal" href="https://medium.com/@sahilbhoir151/the-hidden-geometry-of-myth-a-computational-study-of-ancient-gods-d64da95ef385?sharedUserId=sahilbhoir151" target="_blank" rel="noreferrer"><span class="article-num">04</span><div><small>Computational Mythology</small><h3>The Hidden Geometry of Myth: A Computational Study of Ancient Gods</h3></div><span class="arrow">↗</span></a>
+    </div><a class="text-link reveal" href="https://medium.com/@sahilbhoir151" target="_blank" rel="noreferrer">View all writing on Medium ↗</a></div></section>
 
-        <div class="project-filter reveal" role="group" aria-label="Filter projects">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="ml">ML / AI</button>
-          <button class="filter-btn" data-filter="cloud">Cloud</button>
-          <button class="filter-btn" data-filter="software">Software / Data</button>
-        </div>
+    <section class="section shell" id="about"><div class="section-intro reveal"><p class="overline">03 / About</p><h2>Generalist foundation. AI/ML direction.</h2></div><div class="about-grid reveal"><article class="about-copy"><p>I like projects where the interesting part is not just the model, but the system around it: how data is validated, how state moves, how uncertainty is exposed, how an API is shaped, and how a person actually uses the result.</p><p>That has led me from industrial time-series modeling to real-time vision, NLP, serverless AWS workflows and interactive graph visualisation.</p></article><div class="facts"><div><span>Education</span><strong>B.E. Computer Engineering, Vidyalankar Institute of Technology</strong><small>2021–2025 · Minor in AI & ML · CGPA 9.43/10</small></div><div><span>School</span><strong>HSC 80.5% · SSC 96.2%</strong></div><div><span>Certification</span><strong>AWS Certified Cloud Practitioner (CLF-C02)</strong></div><div><span>Also</span><strong>IBM Full Stack Software Developer Professional Certificate</strong></div></div></div><div class="skill-bands reveal"><div><strong>Languages</strong><span>Python · JavaScript · Java · C/C++ · HTML/CSS</span></div><div><strong>AI / Data</strong><span>PyTorch · Scikit-learn · Pandas · NumPy · Transformers · spaCy · OpenCV</span></div><div><strong>Cloud / Backend</strong><span>AWS Lambda · S3 · DynamoDB · API Gateway · Step Functions · EventBridge · FastAPI · Flask</span></div><div><strong>Engineering</strong><span>Docker · GitHub Actions · Linux · REST APIs · Streamlit · React · Node.js</span></div></div></section>
 
-        <div class="projects-grid">
-          <article class="project-card featured accent-orange reveal" data-category="cloud">
-            <div class="project-visual"><span class="project-code">AWS · Document Intelligence</span><span class="project-symbol">▣</span></div>
-            <div class="project-body">
-              <h3>Serverless Receipt Processor</h3>
-              <p>Authenticated receipt ingestion on AWS: direct S3 upload, Textract OCR, Step Functions orchestration, parsing/categorisation and user-scoped DynamoDB storage behind Cognito-protected APIs.</p>
-              <div class="project-fact">The design separates upload, OCR, parsing and persistence into explicit serverless responsibilities instead of one oversized Lambda.</div>
-              <div class="tags"><span class="tag">Lambda</span><span class="tag">Textract</span><span class="tag">Step Functions</span><span class="tag">DynamoDB</span><span class="tag">Cognito</span><span class="tag">API Gateway</span></div>
-              <div class="project-links"><a href="https://github.com/SahilBh01r1769/serverless-receipt-processor" target="_blank" rel="noreferrer">Repository ↗</a></div>
-            </div>
-          </article>
-
-          <article class="project-card accent-red reveal" data-category="ml">
-            <div class="project-visual"><span class="project-code">Computer Vision · Real-time</span><span class="project-symbol">◉</span></div>
-            <div class="project-body">
-              <h3>Real-Time Violence Detection</h3>
-              <p>A video-monitoring pipeline built around a public pretrained YOLOv8 violence checkpoint, with OpenCV input handling, temporal consistency filtering, alert cooldowns, screenshots, FastAPI and Streamlit monitoring.</p>
-              <div class="project-fact">The engineering contribution is the real-time application pipeline and alert logic; the third-party model is explicitly attributed.</div>
-              <div class="tags"><span class="tag">YOLOv8</span><span class="tag">OpenCV</span><span class="tag">FastAPI</span><span class="tag">Streamlit</span><span class="tag">Docker</span><span class="tag">Twilio</span></div>
-              <div class="project-links"><a href="https://github.com/SahilBh01r1769/violence_detection" target="_blank" rel="noreferrer">Repository ↗</a><a href="https://github.com/SahilBh01r1769/violence_detection/tree/demo/hosted-violence-detection" target="_blank" rel="noreferrer">Demo branch ↗</a></div>
-            </div>
-          </article>
-
-          <article class="project-card accent-lime reveal" data-category="ml">
-            <div class="project-visual"><span class="project-code">Industrial ML · Time Series</span><span class="project-symbol">⌁</span></div>
-            <div class="project-body">
-              <h3>MetroPT-3 Predictive Maintenance</h3>
-              <p>End-to-end predictive-maintenance pipeline over 1.5M+ air-compressor telemetry rows: validation, gap-aware segmentation, cadence-aware windows, 38 engineered features, failure-horizon labels and chronological evaluation.</p>
-              <div class="project-fact">The current baseline performs poorly on the final failure holdout — and the project keeps that result because the evaluation is designed to expose leakage rather than hide it.</div>
-              <div class="tags"><span class="tag">Pandas</span><span class="tag">Scikit-learn</span><span class="tag">Time Series</span><span class="tag">Feature Engineering</span><span class="tag">CI</span></div>
-              <div class="project-links"><a href="https://github.com/SahilBh01r1769/metropt3-predictive-maintenance" target="_blank" rel="noreferrer">Repository ↗</a><a href="https://github.com/SahilBh01r1769/metropt3-predictive-maintenance/tree/demo/hosted-maintenance-dashboard" target="_blank" rel="noreferrer">Demo branch ↗</a></div>
-            </div>
-          </article>
-
-          <article class="project-card accent-blue reveal" data-category="cloud">
-            <div class="project-visual"><span class="project-code">AWS · Streaming & Events</span><span class="project-symbol">≈</span></div>
-            <div class="project-body">
-              <h3>Signal — Audio Transcription & Sentiment</h3>
-              <p>Serverless speech application with browser microphone audio over API Gateway WebSockets, Amazon Transcribe, Comprehend sentiment, DynamoDB session/log state, plus an asynchronous S3 → Transcribe → EventBridge batch path.</p>
-              <div class="project-fact">Two processing modes demonstrate different event patterns: chunked near-real-time interaction and asynchronous file transcription.</div>
-              <div class="tags"><span class="tag">Transcribe</span><span class="tag">Comprehend</span><span class="tag">WebSockets</span><span class="tag">EventBridge</span><span class="tag">SAM</span></div>
-              <div class="project-links"><a href="https://github.com/SahilBh01r1769/aws-audio-transcription-sentiment" target="_blank" rel="noreferrer">Repository ↗</a></div>
-            </div>
-          </article>
-
-          <article class="project-card accent-violet reveal" data-category="ml">
-            <div class="project-visual"><span class="project-code">Deep Learning · Vision-Language</span><span class="project-symbol">✦</span></div>
-            <div class="project-body">
-              <h3>CaptionLab — Explainable Image Captioning</h3>
-              <p>Research-oriented captioning lab comparing a ResNet50/LSTM baseline with a spatial encoder and additive-attention decoder, plus beam search, token confidence and word-level attention visualisation.</p>
-              <div class="project-fact">Image-level splitting, staged CNN fine-tuning and explicit evaluation policy keep the project focused on architecture and reproducibility rather than unverified scores.</div>
-              <div class="tags"><span class="tag">PyTorch</span><span class="tag">ResNet50</span><span class="tag">LSTM</span><span class="tag">Attention</span><span class="tag">Beam Search</span></div>
-              <div class="project-links"><a href="https://github.com/SahilBh01r1769/image-captioning" target="_blank" rel="noreferrer">Repository ↗</a><a href="https://github.com/SahilBh01r1769/image-captioning/tree/demo/hosted-captioning" target="_blank" rel="noreferrer">Demo branch ↗</a></div>
-            </div>
-          </article>
-
-          <article class="project-card accent-aqua reveal" data-category="ml">
-            <div class="project-visual"><span class="project-code">NLP · Evidence-Aware UX</span><span class="project-symbol">¶</span></div>
-            <div class="project-body">
-              <h3>TextScope — Evidence-Aware NLP</h3>
-              <p>A document intelligence workbench combining structure, sentiment trajectory, NER, salient concepts, summarisation, dependency syntax and extractive QA around one common source-evidence layer.</p>
-              <div class="project-fact">Entities and concepts retain sentence IDs; QA returns supporting source text or abstains; summary coverage diagnostics surface information loss.</div>
-              <div class="tags"><span class="tag">spaCy</span><span class="tag">BART</span><span class="tag">RoBERTa</span><span class="tag">Transformers</span><span class="tag">Streamlit</span></div>
-              <div class="project-links"><a href="https://github.com/SahilBh01r1769/textscope-nlp" target="_blank" rel="noreferrer">Repository ↗</a><a href="https://github.com/SahilBh01r1769/textscope-nlp/tree/demo/hosted-textscope" target="_blank" rel="noreferrer">Demo branch ↗</a></div>
-            </div>
-          </article>
-
-          <article class="project-card accent-orange reveal" data-category="software">
-            <div class="project-visual"><span class="project-code">Knowledge Graph · Data Visualisation</span><span class="project-symbol">⌘</span></div>
-            <div class="project-body">
-              <h3>Mythos Network — Indo-European Gods</h3>
-              <p>An interactive knowledge graph that models deities as curated 16-dimensional trait vectors and explores similarity, cognacy, archetypes, cross-pantheon matrices, map views and shortest similarity chains.</p>
-              <div class="project-fact">The project cleanly separates computational similarity from linguistic cognacy and treats trait weights as curated heuristics rather than historical measurements.</div>
-              <div class="tags"><span class="tag">JavaScript</span><span class="tag">D3.js</span><span class="tag">Leaflet</span><span class="tag">Web Workers</span><span class="tag">Graph Search</span></div>
-              <div class="project-links"><a href="https://github.com/SahilBh01r1769/indo_european_gods" target="_blank" rel="noreferrer">Repository ↗</a></div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="skills">
-      <div class="shell">
-        <div class="section-head reveal">
-          <div><div class="kicker">Technical toolkit</div><h2>Broad enough to build the whole path.</h2></div>
-          <p>I’m strongest when a problem crosses boundaries: data preparation, model logic, APIs, cloud services and the interface used to inspect the result.</p>
-        </div>
-        <div class="skills-layout reveal">
-          <article class="skills-intro">
-            <h3>Generalist foundation, AI/ML direction.</h3>
-            <p>My degree and project work sit at the intersection of software engineering and applied AI. I use pretrained models when they are the right engineering choice, and custom training/evaluation when the project is about model behaviour itself.</p>
-            <div class="skill-callout"><i></i><span>Primary language: Python</span></div>
-            <div class="skill-callout"><i></i><span>Comfortable building from CLI/data layer through web interface</span></div>
-          </article>
-          <div class="skills-panel">
-            <div class="skill-row"><strong>Languages</strong><span>Python · JavaScript · Java · C/C++ · HTML/CSS</span></div>
-            <div class="skill-row"><strong>ML / Data</strong><span>PyTorch · Scikit-learn · Pandas · NumPy · TensorFlow/Keras · Time-series modeling</span></div>
-            <div class="skill-row"><strong>NLP</strong><span>spaCy · Hugging Face Transformers · BART · RoBERTa · TextBlob · LangChain</span></div>
-            <div class="skill-row"><strong>Computer Vision</strong><span>OpenCV · YOLOv8/Ultralytics · ResNet50 · CNNs · real-time inference</span></div>
-            <div class="skill-row"><strong>AWS / Backend</strong><span>Lambda · S3 · DynamoDB · API Gateway · Step Functions · EventBridge · Textract · Transcribe · Comprehend · CloudFront · FastAPI · Flask</span></div>
-            <div class="skill-row"><strong>Engineering</strong><span>Docker · Git/GitHub · Linux · GitHub Actions / CI · REST APIs · Streamlit · React · Node.js</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="background">
-      <div class="shell">
-        <div class="section-head reveal">
-          <div><div class="kicker">Background</div><h2>Academic foundation + hands-on building.</h2></div>
-          <p>The degree supplied the fundamentals; the portfolio is where I’ve tested them against real datasets, APIs, cloud services and messy engineering constraints.</p>
-        </div>
-        <div class="timeline-grid reveal">
-          <article class="info-panel">
-            <h3>Education</h3>
-            <div class="edu-item">
-              <div class="date">2021 — 2025</div>
-              <h4>B.E. Computer Engineering</h4>
-              <p>Vidyalankar Institute of Technology, Mumbai · Minor in Artificial Intelligence & Machine Learning · <strong>CGPA 9.43 / 10</strong></p>
-            </div>
-            <div class="edu-item">
-              <div class="date">Higher Secondary</div>
-              <h4>Narayana Junior College, Kalyan</h4>
-              <p>HSC · <strong>80.5%</strong></p>
-            </div>
-            <div class="edu-item">
-              <div class="date">Secondary School</div>
-              <h4>Jindal Vidya Mandir, Vasind</h4>
-              <p>SSC · <strong>96.2%</strong></p>
-            </div>
-          </article>
-
-          <article class="info-panel">
-            <h3>Certifications & learning</h3>
-            <div class="cert-list">
-              <div class="cert-item"><div class="cert-icon">AWS</div><div><strong>AWS Certified Cloud Practitioner (CLF-C02)</strong><span>Amazon Web Services</span></div></div>
-              <div class="cert-item"><div class="cert-icon">IBM</div><div><strong>IBM Full Stack Software Developer Professional Certificate</strong><span>React · Node.js · Docker · Kubernetes · CI/CD</span></div></div>
-              <div class="cert-item"><div class="cert-icon">☁</div><div><strong>AWS Cloud Practitioner Essentials</strong><span>Amazon Web Services</span></div></div>
-              <div class="cert-item"><div class="cert-icon">ML</div><div><strong>Machine Learning in Python</strong><span>Additional coursework</span></div></div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="contact">
-      <div class="shell">
-        <div class="contact-panel reveal">
-          <div class="kicker">Let’s build something useful</div>
-          <h2>Looking for graduate roles where software engineering and intelligent systems meet.</h2>
-          <p>I’m interested in AI/ML engineering, cloud development and software roles where I can keep working across the full system rather than only one isolated layer.</p>
-          <div class="contact-actions">
-            <a class="btn btn-primary" href="mailto:sahilbhoir151@gmail.com">Email me</a>
-            <a class="btn btn-secondary" href="https://github.com/SahilBh01r1769" target="_blank" rel="noreferrer">GitHub ↗</a>
-            <a class="btn btn-secondary" href="https://www.linkedin.com/in/sahil-bhoir-2a8750387/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section class="contact section" id="contact"><div class="shell contact-inner reveal"><p class="overline">04 / Contact</p><h2>Have a role, project or technical conversation in mind?</h2><div class="contact-row"><a class="button primary" href="mailto:sahilbhoir151@gmail.com">sahilbhoir151@gmail.com</a><a class="button ghost" href="resume.pdf" download="Sahil_Bhoir_Resume.pdf">Resume ↓</a><a class="button ghost" href="https://www.linkedin.com/in/sahil-bhoir-2a8750387/" target="_blank" rel="noreferrer">LinkedIn ↗</a></div></div></section>
   </main>
 
-  <footer class="footer">
-    <div class="shell footer-row">
-      <span>© <span id="year"></span> Sahil Bhoir · Built as a lightweight static site.</span>
-      <div class="footer-links"><a href="#top">Top ↑</a><a href="mailto:sahilbhoir151@gmail.com">Email</a><a href="https://github.com/SahilBh01r1769" target="_blank" rel="noreferrer">GitHub</a></div>
-    </div>
-  </footer>
-
+  <footer class="footer shell"><span>© <span id="year"></span> Sahil Bhoir</span><span>Built lightweight. Hosted on GitHub Pages.</span><div><a href="https://github.com/SahilBh01r1769" target="_blank" rel="noreferrer">GitHub</a><a href="https://medium.com/@sahilbhoir151" target="_blank" rel="noreferrer">Medium</a><a href="#top">Top ↑</a></div></footer>
   <script src="app.js"></script>
 </body>
 </html>
