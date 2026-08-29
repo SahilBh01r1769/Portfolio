@@ -19,7 +19,15 @@ jobs:
           from html.parser import HTMLParser
           from pathlib import Path
 
-          required = ['index.html', 'styles.css', 'app.js', 'resume.pdf']
+          required = [
+              'index.html',
+              'styles.css',
+              'styles/about.css',
+              'app.js',
+              'data/projects.js',
+              'data/articles.js',
+              'resume.pdf',
+          ]
           for path in required:
               assert Path(path).is_file(), f'Missing {path}'
 
@@ -27,20 +35,34 @@ jobs:
               def __init__(self):
                   super().__init__()
                   self.hrefs = []
+                  self.scripts = []
+                  self.stylesheets = []
               def handle_starttag(self, tag, attrs):
                   attrs = dict(attrs)
                   if tag == 'a' and attrs.get('href'):
                       self.hrefs.append(attrs['href'])
+                  if tag == 'script' and attrs.get('src'):
+                      self.scripts.append(attrs['src'])
+                  if tag == 'link' and attrs.get('rel') == 'stylesheet' and attrs.get('href'):
+                      self.stylesheets.append(attrs['href'])
 
           html = Path('index.html').read_text(encoding='utf-8')
+          projects = Path('data/projects.js').read_text(encoding='utf-8')
+          articles = Path('data/articles.js').read_text(encoding='utf-8')
+          app = Path('app.js').read_text(encoding='utf-8')
           parser = Parser()
           parser.feed(html)
 
           assert '9.43' in html, 'Current CGPA missing'
           assert '80.5%' in html, 'Current HSC percentage missing'
           assert '9.744' not in html, 'Old CGPA still present'
-          assert '92% OCR' not in html, 'Unsupported OCR metric still present'
-          assert '15–30 FPS' not in html, 'Unsupported FPS claim still present'
+          assert '92% OCR' not in projects, 'Unsupported OCR metric still present'
+          assert '15–30 FPS' not in projects, 'Unsupported FPS claim still present'
+
+          assert parser.scripts[-3:] == ['data/projects.js', 'data/articles.js', 'app.js'], 'Data modules must load before app.js'
+          assert 'styles/about.css' in parser.stylesheets, 'About stylesheet missing'
+          assert 'PORTFOLIO_PROJECTS' in projects and 'PORTFOLIO_ARTICLES' in articles, 'Portfolio data globals missing'
+          assert 'renderContent()' in app, 'Portfolio render bootstrap missing'
 
           repos = [
               'serverless-receipt-processor',
@@ -61,10 +83,11 @@ jobs:
               'https://d2h6neawct2uig.cloudfront.net/',
           ]
           for value in repos + demos:
-              assert value in html, f'Missing portfolio link: {value}'
+              assert value in projects, f'Missing project data: {value}'
 
-          assert 'https://medium.com/@sahilbhoir151' in html, 'Medium profile missing'
+          assert projects.count("id: '") == 7, 'Expected seven project records'
+          assert articles.count("number: '") >= 4, 'Expected at least four article records'
+          assert 'https://medium.com/@sahilbhoir151' in articles, 'Medium article links missing'
           assert 'resume.pdf' in parser.hrefs, 'Resume link missing'
-          assert len([u for u in parser.hrefs if u.startswith('https://medium.com/@sahilbhoir151/')]) >= 4, 'Medium articles missing'
-          print(f'Validated portfolio, {len(repos)} projects, {len(demos)} live demos and Medium writing links.')
+          print('Validated modular portfolio data, rendering hooks, seven projects and writing links.')
           PY
