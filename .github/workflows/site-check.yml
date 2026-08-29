@@ -19,7 +19,7 @@ jobs:
           from html.parser import HTMLParser
           from pathlib import Path
 
-          required = ['index.html', 'styles.css', 'app.js']
+          required = ['index.html', 'styles.css', 'app.js', 'resume.pdf']
           for path in required:
               assert Path(path).is_file(), f'Missing {path}'
 
@@ -33,6 +33,7 @@ jobs:
                       self.hrefs.append(attrs['href'])
 
           html = Path('index.html').read_text(encoding='utf-8')
+          js = Path('app.js').read_text(encoding='utf-8')
           parser = Parser()
           parser.feed(html)
 
@@ -52,8 +53,22 @@ jobs:
               'indo_european_gods',
           ]
           for repo in repos:
-              assert repo in html, f'Missing project link: {repo}'
+              assert repo in html or repo in js, f'Missing project link: {repo}'
 
+          demos = [
+              'https://sahilbh01r1769.github.io/indo_european_gods/',
+              'https://nlp-webapp.streamlit.app/',
+              'https://image-captioningdemo.streamlit.app/',
+              'https://metropt3-predictive-maintenance.streamlit.app/',
+              'https://d3uo3z77ak8ix1.cloudfront.net/',
+              'https://violencedetectionai.streamlit.app/',
+              'https://d2h6neawct2uig.cloudfront.net/',
+          ]
+          for demo in demos:
+              assert demo in js, f'Missing live demo link: {demo}'
+
+          assert 'https://medium.com/@sahilbhoir151' in js, 'Medium profile missing'
+          assert "RESUME_URL = 'resume.pdf'" in js, 'Resume download link missing'
           assert parser.hrefs, 'No links found'
-          print(f'Validated {len(parser.hrefs)} links and {len(repos)} project references.')
+          print(f'Validated portfolio, {len(repos)} projects and {len(demos)} live demos.')
           PY
