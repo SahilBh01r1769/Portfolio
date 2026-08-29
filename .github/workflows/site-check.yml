@@ -1,0 +1,59 @@
+name: portfolio checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate static site
+        run: |
+          python - <<'PY'
+          from html.parser import HTMLParser
+          from pathlib import Path
+
+          required = ['index.html', 'styles.css', 'app.js']
+          for path in required:
+              assert Path(path).is_file(), f'Missing {path}'
+
+          class Parser(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.hrefs = []
+              def handle_starttag(self, tag, attrs):
+                  attrs = dict(attrs)
+                  if tag == 'a' and attrs.get('href'):
+                      self.hrefs.append(attrs['href'])
+
+          html = Path('index.html').read_text(encoding='utf-8')
+          parser = Parser()
+          parser.feed(html)
+
+          assert '9.43' in html, 'Current CGPA missing'
+          assert '80.5%' in html, 'Current HSC percentage missing'
+          assert '9.744' not in html, 'Old CGPA still present'
+          assert '92% OCR' not in html, 'Unsupported OCR metric still present'
+          assert '15–30 FPS' not in html, 'Unsupported FPS claim still present'
+
+          repos = [
+              'serverless-receipt-processor',
+              'violence_detection',
+              'metropt3-predictive-maintenance',
+              'aws-audio-transcription-sentiment',
+              'image-captioning',
+              'textscope-nlp',
+              'indo_european_gods',
+          ]
+          for repo in repos:
+              assert repo in html, f'Missing project link: {repo}'
+
+          assert parser.hrefs, 'No links found'
+          print(f'Validated {len(parser.hrefs)} links and {len(repos)} project references.')
+          PY
