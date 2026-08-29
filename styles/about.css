@@ -1,1 +1,211 @@
-.about-showcase{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(340px,.85fr);gap:28px;align-items:stretch;margin-top:8px}.about-story,.about-facts{border:1px solid rgba(23,23,23,.12);border-radius:28px}.about-story{position:relative;overflow:hidden;padding:clamp(28px,4vw,48px);background:linear-gradient(145deg,#191918,#252521);color:#f5f1e9}.about-story::after{content:'';position:absolute;width:240px;height:240px;border-radius:50%;right:-80px;bottom:-100px;border:1px solid rgba(255,255,255,.12);box-shadow:0 0 0 32px rgba(255,255,255,.018),0 0 0 64px rgba(255,255,255,.012)}.about-index{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;color:#aaa59c}.about-lead{font-family:'Instrument Serif',serif;font-size:clamp(2.15rem,4vw,3.7rem);line-height:1.02;letter-spacing:-.025em;margin:52px 0 26px;max-width:610px}.about-story>p:not(.about-lead){position:relative;z-index:1;max-width:680px;color:#c8c2b8;font-size:1rem;margin:0 0 16px}.about-facts{padding:18px;background:rgba(255,255,255,.24);display:flex;flex-direction:column;gap:12px}.fact-card{border:1px solid rgba(23,23,23,.1);border-radius:20px;padding:20px;background:rgba(255,255,255,.46)}.primary-fact{background:#dfe7cc;min-height:188px;display:flex;flex-direction:column;justify-content:flex-end}.fact-card span,.school-line span{font-family:'DM Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:#6f6a63}.fact-card strong{display:block;font-size:1.08rem;line-height:1.3;margin-top:7px}.primary-fact strong{font-family:'Instrument Serif',serif;font-size:clamp(1.8rem,3vw,2.45rem);font-weight:400;letter-spacing:-.02em}.fact-card p{margin:4px 0;color:#605b54;font-size:13px}.fact-card small{display:block;margin-top:5px;color:#746f67}.fact-pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}.school-line{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:13px 4px 4px}.school-line strong{font-size:13px}.approach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px}.approach-grid article{position:relative;min-height:190px;padding:22px;border:1px solid var(--line);border-radius:22px;background:rgba(255,255,255,.25);transition:transform .25s,background .25s}.approach-grid article:hover{transform:translateY(-3px);background:rgba(255,255,255,.48)}.approach-grid article>span{font-family:'DM Mono',monospace;font-size:10px;color:#807a72}.approach-grid h3{font-family:'Instrument Serif',serif;font-size:1.65rem;font-weight:400;letter-spacing:-.02em;margin:28px 0 9px}.approach-grid p{font-size:13px;color:#69645d;margin:0;line-height:1.55}@media(max-width:900px){.about-showcase{grid-template-columns:1fr}.fact-pair{grid-template-columns:1fr 1fr}.approach-grid{grid-template-columns:1fr}}@media(max-width:560px){.fact-pair{grid-template-columns:1fr}.school-line{align-items:flex-start;flex-direction:column;gap:4px}.about-story{padding:26px 22px}.about-lead{margin-top:42px}}
+.about-showcase {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(340px, .85fr);
+  gap: 28px;
+  align-items: stretch;
+  margin-top: 8px;
+}
+
+.about-story,
+.about-facts {
+  border: 1px solid rgba(23, 23, 23, .12);
+  border-radius: 28px;
+}
+
+.about-story {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(28px, 4vw, 48px);
+  background: linear-gradient(145deg, #191918, #252521);
+  color: #f5f1e9;
+}
+
+.about-story::after {
+  content: '';
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  right: -80px;
+  bottom: -100px;
+  border: 1px solid rgba(255, 255, 255, .12);
+  box-shadow: 0 0 0 32px rgba(255, 255, 255, .018), 0 0 0 64px rgba(255, 255, 255, .012);
+}
+
+.about-index {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .1em;
+  color: #aaa59c;
+}
+
+.about-lead {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(2.15rem, 4vw, 3.7rem);
+  line-height: 1.02;
+  letter-spacing: -.025em;
+  margin: 52px 0 26px;
+  max-width: 610px;
+}
+
+.about-story > p:not(.about-lead) {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+  color: #c8c2b8;
+  font-size: 1rem;
+  margin: 0 0 16px;
+}
+
+.about-facts {
+  padding: 18px;
+  background: rgba(255, 255, 255, .24);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.fact-card {
+  border: 1px solid rgba(23, 23, 23, .1);
+  border-radius: 20px;
+  padding: 20px;
+  background: rgba(255, 255, 255, .46);
+}
+
+.primary-fact {
+  background: #dfe7cc;
+  min-height: 188px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.fact-card span,
+.school-line span {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: #6f6a63;
+}
+
+.fact-card strong {
+  display: block;
+  font-size: 1.08rem;
+  line-height: 1.3;
+  margin-top: 7px;
+}
+
+.primary-fact strong {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(1.8rem, 3vw, 2.45rem);
+  font-weight: 400;
+  letter-spacing: -.02em;
+}
+
+.fact-card p {
+  margin: 4px 0;
+  color: #605b54;
+  font-size: 13px;
+}
+
+.fact-card small {
+  display: block;
+  margin-top: 5px;
+  color: #746f67;
+}
+
+.fact-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.school-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 13px 4px 4px;
+}
+
+.school-line strong {
+  font-size: 13px;
+}
+
+.approach-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.approach-grid article {
+  position: relative;
+  min-height: 190px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, .25);
+  transition: transform .25s, background .25s;
+}
+
+.approach-grid article:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, .48);
+}
+
+.approach-grid article > span {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: #807a72;
+}
+
+.approach-grid h3 {
+  font-family: 'Instrument Serif', serif;
+  font-size: 1.65rem;
+  font-weight: 400;
+  letter-spacing: -.02em;
+  margin: 28px 0 9px;
+}
+
+.approach-grid p {
+  font-size: 13px;
+  color: #69645d;
+  margin: 0;
+  line-height: 1.55;
+}
+
+@media (max-width: 900px) {
+  .about-showcase {
+    grid-template-columns: 1fr;
+  }
+
+  .fact-pair {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .approach-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .fact-pair {
+    grid-template-columns: 1fr;
+  }
+
+  .school-line {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .about-story {
+    padding: 26px 22px;
+  }
+
+  .about-lead {
+    margin-top: 42px;
+  }
+}
