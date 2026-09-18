@@ -2,6 +2,8 @@ const nav = document.getElementById('nav');
 const navLinks = document.getElementById('navLinks');
 const mobileToggle = document.getElementById('mobileToggle');
 const projectGrid = document.getElementById('projectGrid');
+const moreWorkGrid = document.getElementById('moreWorkGrid');
+const moreWorkBlock = document.getElementById('moreWorkBlock');
 const articlesGrid = document.getElementById('articlesGrid');
 const modal = document.getElementById('projectModal');
 const modalPanel = modal?.querySelector('.modal-panel');
@@ -9,6 +11,7 @@ const modalTitle = document.getElementById('modalTitle');
 const modalKicker = document.getElementById('modalKicker');
 const modalSummary = document.getElementById('modalSummary');
 const modalFocus = document.getElementById('modalFocus');
+const modalEvidence = document.getElementById('modalEvidence');
 const modalTradeoff = document.getElementById('modalTradeoff');
 const modalArchitecture = document.getElementById('modalArchitecture');
 const modalActions = document.getElementById('modalActions');
@@ -61,7 +64,10 @@ function createArticleCard(article) {
 }
 
 function renderContent() {
-  projectGrid?.replaceChildren(...PROJECTS.map(createProjectCard));
+  const featured = PROJECTS.filter(project => project.featured !== false);
+  const moreWork = PROJECTS.filter(project => project.featured === false);
+  projectGrid?.replaceChildren(...featured.map(createProjectCard));
+  moreWorkGrid?.replaceChildren(...moreWork.map(createProjectCard));
   articlesGrid?.replaceChildren(...ARTICLES.map(createArticleCard));
 }
 
@@ -77,6 +83,8 @@ function setupProjectFilters() {
     getProjectCards().forEach(project => {
       project.classList.toggle('hidden', !(filter === 'all' || project.dataset.category === filter));
     });
+    const visibleSecondary = moreWorkGrid?.querySelectorAll('.project:not(.hidden)').length || 0;
+    moreWorkBlock?.classList.toggle('hidden', visibleSecondary === 0);
   }));
 }
 
@@ -102,6 +110,7 @@ function openProjectModal(key) {
   modalTitle.textContent = data.title;
   modalSummary.textContent = data.summary;
   modalFocus.textContent = data.focus;
+  modalEvidence.textContent = data.evidence;
   modalTradeoff.textContent = data.tradeoff;
 
   modalArchitecture.replaceChildren();
