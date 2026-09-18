@@ -3,11 +3,17 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Sahil Bhoir — Computer Engineering graduate building applied AI, machine learning and cloud systems." />
+  <meta name="description" content="Sahil Bhoir builds applied machine-learning, backend and AWS systems with careful evaluation and visible engineering trade-offs." />
   <meta name="theme-color" content="#f2efe8" />
-  <meta property="og:title" content="Sahil Bhoir — Engineering Portfolio" />
-  <meta property="og:description" content="Applied AI, ML systems, cloud architecture and software engineering." />
-  <title>Sahil Bhoir — Engineering Portfolio</title>
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://sahilbh01r1769.github.io/Portfolio/" />
+  <meta property="og:title" content="Sahil Bhoir — Applied ML and Cloud Engineer" />
+  <meta property="og:description" content="Applied machine learning, backend engineering and AWS projects built with careful evaluation and visible trade-offs." />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Sahil Bhoir — Applied ML and Cloud Engineer" />
+  <meta name="twitter:description" content="Applied machine learning, backend engineering and AWS projects built with careful evaluation and visible trade-offs." />
+  <link rel="canonical" href="https://sahilbh01r1769.github.io/Portfolio/" />
+  <title>Sahil Bhoir — Applied ML and Cloud Engineer</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="styles/about.css" />
 </head>
@@ -30,7 +36,7 @@
     <section class="hero shell">
       <div class="hero-main reveal">
         <p class="overline">Computer Engineering · AI/ML · Cloud</p>
-        <h1>Building useful systems at the edge of <em>software</em> and <em>intelligence.</em></h1>
+        <h1>Building applied ML systems that hold up <em>beyond the model.</em></h1>
         <p class="hero-copy">I’m a Computer Engineering graduate from Mumbai with a minor in AI & ML. I build across machine learning, computer vision, NLP and AWS, and I enjoy the parts that sit between the model and the finished system: data quality, backend logic, deployment, testing and the interface people actually use.</p>
         <div class="hero-actions">
           <a class="button primary" href="#work">View selected work</a>
@@ -73,6 +79,14 @@
       </div>
 
       <div class="project-grid" id="projectGrid" aria-live="polite"></div>
+
+      <div class="more-work-block reveal" id="moreWorkBlock">
+        <div class="more-work-heading">
+          <p class="section-label">More work</p>
+          <p>Smaller projects that show range beyond the featured systems.</p>
+        </div>
+        <div class="project-grid secondary-grid" id="moreWorkGrid"></div>
+      </div>
     </section>
 
     <section class="section shell" id="about">
@@ -151,10 +165,12 @@
       <button class="modal-close" type="button" aria-label="Close project details" data-close-modal>×</button>
       <p class="modal-kicker" id="modalKicker"></p>
       <h2 id="modalTitle"></h2>
+      <span class="modal-label">Problem</span>
       <p class="modal-summary" id="modalSummary"></p>
       <div class="modal-grid">
-        <div><span class="modal-label">What I worked on</span><p id="modalFocus"></p></div>
-        <div><span class="modal-label">Design note</span><p id="modalTradeoff"></p></div>
+        <div><span class="modal-label">Contribution and decisions</span><p id="modalFocus"></p></div>
+        <div><span class="modal-label">Evidence and result</span><p id="modalEvidence"></p></div>
+        <div class="modal-wide"><span class="modal-label">Limitation or lesson</span><p id="modalTradeoff"></p></div>
       </div>
       <div class="architecture-block"><span class="modal-label">Architecture</span><div class="architecture-flow" id="modalArchitecture"></div></div>
       <div class="modal-actions" id="modalActions"></div>
