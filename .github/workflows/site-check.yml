@@ -4,6 +4,9 @@ on:
   push:
     branches: [main]
   pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: '20 5 * * 1'
 
 jobs:
   validate:
@@ -65,6 +68,10 @@ jobs:
           assert 'styles/about.css' in parser.stylesheets, 'About stylesheet missing'
           assert 'PORTFOLIO_PROJECTS' in projects and 'PORTFOLIO_ARTICLES' in articles, 'Portfolio data globals missing'
           assert 'renderContent()' in app, 'Portfolio render bootstrap missing'
+          assert 'moreWorkGrid' in html and 'moreWorkGrid' in app, 'Secondary project section missing'
+          assert 'modalEvidence' in html and 'modalEvidence' in app, 'Evidence-rich project details missing'
+          assert 'rel="canonical"' in html, 'Canonical URL missing'
+          assert 'twitter:card' in html and 'og:url' in html, 'Social metadata incomplete'
 
           repos = [
               'cyberattack-tactics-triage',
@@ -89,10 +96,35 @@ jobs:
               assert value in projects, f'Missing project data: {value}'
 
           assert projects.count("id: '") == 8, 'Expected eight project records'
+          assert projects.count('featured: true') == 6, 'Expected six featured projects'
+          assert projects.count('featured: false') == 2, 'Expected two secondary projects'
+          assert projects.count('evidence:') == 8, 'Every project needs an evidence statement'
           assert "demo: ''" in projects, 'Repository-only project case missing'
           assert 'project.demo' in app and 'modalDemoLink' in app, 'Optional demo rendering missing'
           assert articles.count("number: '") >= 4, 'Expected at least four article records'
           assert 'https://medium.com/@sahilbhoir151' in articles, 'Medium article links missing'
           assert 'resume.pdf' in parser.hrefs, 'Resume link missing'
-          print('Validated modular portfolio data, optional demo links, eight projects and writing links.')
+          print('Validated six featured projects, two secondary projects, evidence details and portfolio links.')
           PY
+
+  link-check:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        url:
+          - https://sahilbh01r1769.github.io/Portfolio/
+          - https://github.com/SahilBh01r1769/cyberattack-tactics-triage
+          - https://github.com/SahilBh01r1769/violence_detection
+          - https://github.com/SahilBh01r1769/serverless-receipt-processor
+          - https://metropt3-predictive-maintenance.streamlit.app/
+          - https://violencedetectionai.streamlit.app/
+          - https://d3uo3z77ak8ix1.cloudfront.net/
+          - https://d2h6neawct2uig.cloudfront.net/
+          - https://image-captioningdemo.streamlit.app/
+          - https://nlp-webapp.streamlit.app/
+          - https://sahilbh01r1769.github.io/indo_european_gods/
+    steps:
+      - name: Check public link
+        run: curl --fail --location --silent --show-error --retry 2 --max-time 30 --output /dev/null "${{ matrix.url }}"
