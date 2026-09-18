@@ -12,13 +12,14 @@ A lightweight static portfolio for a Computer Engineering graduate focused on ap
 
 ## Featured projects
 
-- Serverless Receipt Processor
-- Real-Time Violence Detection
+- Cyberattack Tactics Triage
 - MetroPT-3 Predictive Maintenance
+- Real-Time Violence Event Detection
+- Serverless Receipt Processor
 - Signal — AWS Audio Transcription & Sentiment
-- CaptionLab — Explainable Image Captioning
-- TextScope — Evidence-Aware NLP
-- Mythos Network — Indo-European Gods
+- CaptionLab — Image Captioning with Visual Attention
+- Mythos — Comparative Mythology
+- TextScope NLP
 
 ## Content policy
 
@@ -32,12 +33,6 @@ python -m http.server 8000
 
 Open `http://localhost:8000`.
 
-The site consists of:
-
-```text
-index.html
-styles.css
-app.js
-```
+Project content is stored in `data/projects.js`, while `app.js` renders the cards and detail views. The site is deployed through GitHub Pages.
 
 There is no build step.
