@@ -58,6 +58,8 @@ jobs:
           assert '9.744' not in html, 'Old CGPA still present'
           assert '92% OCR' not in projects, 'Unsupported OCR metric still present'
           assert '15–30 FPS' not in projects, 'Unsupported FPS claim still present'
+          assert 'RF baseline' not in projects, 'Obsolete MetroPT model framing still present'
+          assert '38 features' not in projects, 'Obsolete MetroPT feature framing still present'
 
           assert parser.scripts[-3:] == ['data/projects.js', 'data/articles.js', 'app.js'], 'Data modules must load before app.js'
           assert 'styles/about.css' in parser.stylesheets, 'About stylesheet missing'
@@ -65,9 +67,10 @@ jobs:
           assert 'renderContent()' in app, 'Portfolio render bootstrap missing'
 
           repos = [
-              'serverless-receipt-processor',
-              'violence_detection',
+              'cyberattack-tactics-triage',
               'metropt3-predictive-maintenance',
+              'violence_detection',
+              'serverless-receipt-processor',
               'aws-audio-transcription-sentiment',
               'image-captioning',
               'textscope-nlp',
@@ -85,9 +88,11 @@ jobs:
           for value in repos + demos:
               assert value in projects, f'Missing project data: {value}'
 
-          assert projects.count("id: '") == 7, 'Expected seven project records'
+          assert projects.count("id: '") == 8, 'Expected eight project records'
+          assert "demo: ''" in projects, 'Repository-only project case missing'
+          assert 'project.demo' in app and 'modalDemoLink' in app, 'Optional demo rendering missing'
           assert articles.count("number: '") >= 4, 'Expected at least four article records'
           assert 'https://medium.com/@sahilbhoir151' in articles, 'Medium article links missing'
           assert 'resume.pdf' in parser.hrefs, 'Resume link missing'
-          print('Validated modular portfolio data, rendering hooks, seven projects and writing links.')
+          print('Validated modular portfolio data, optional demo links, eight projects and writing links.')
           PY
