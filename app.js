@@ -25,6 +25,9 @@ function createProjectCard(project) {
   article.tabIndex = 0;
 
   const tags = project.tags.map(tag => `<span>${tag}</span>`).join('');
+  const demoLink = project.demo
+    ? `<a href="${project.demo}" target="_blank" rel="noreferrer">Live demo ↗</a>`
+    : '';
   article.innerHTML = `
     <div class="project-top"><span>${project.eyebrow}</span><span>${project.meta}</span></div>
     <div class="project-content">
@@ -33,7 +36,7 @@ function createProjectCard(project) {
       <div class="chips">${tags}</div>
     </div>
     <div class="project-links">
-      <a href="${project.demo}" target="_blank" rel="noreferrer">Live demo ↗</a>
+      ${demoLink}
       <a href="${project.repo}" target="_blank" rel="noreferrer">GitHub ↗</a>
     </div>
     <span class="inspect-hint">Open details →</span>`;
@@ -116,7 +119,10 @@ function openProjectModal(key) {
     }
   });
 
-  modalActions.innerHTML = `<a href="${data.demo}" target="_blank" rel="noreferrer">Live demo ↗</a><a href="${data.repo}" target="_blank" rel="noreferrer">GitHub ↗</a>`;
+  const modalDemoLink = data.demo
+    ? `<a href="${data.demo}" target="_blank" rel="noreferrer">Live demo ↗</a>`
+    : '';
+  modalActions.innerHTML = `${modalDemoLink}<a href="${data.repo}" target="_blank" rel="noreferrer">GitHub ↗</a>`;
   modal.classList.add('open');
   modal.setAttribute('aria-hidden', 'false');
   document.body.classList.add('modal-open');
