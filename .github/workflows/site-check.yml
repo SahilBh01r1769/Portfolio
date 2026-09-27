@@ -64,7 +64,7 @@ jobs:
           assert 'RF baseline' not in projects, 'Obsolete MetroPT model framing still present'
           assert '38 features' not in projects, 'Obsolete MetroPT feature framing still present'
 
-          assert parser.scripts[-3:] == ['data/projects.js', 'data/articles.js', 'app.js'], 'Data modules must load before app.js'
+          assert [src.split('?', 1)[0] for src in parser.scripts[-3:]] == ['data/projects.js', 'data/articles.js', 'app.js'], 'Data modules must load before app.js'
           assert 'styles/about.css' in parser.stylesheets, 'About stylesheet missing'
           assert 'PORTFOLIO_PROJECTS' in projects and 'PORTFOLIO_ARTICLES' in articles, 'Portfolio data globals missing'
           assert 'renderContent()' in app, 'Portfolio render bootstrap missing'

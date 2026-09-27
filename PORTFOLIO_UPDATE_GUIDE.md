@@ -65,12 +65,13 @@ Each project uses this shape:
 ### Adding a project
 
 1. Add one object to `data/projects.js`.
-2. Give it a unique ID and the next visible number.
-3. Select an existing category, size, theme and modal theme.
-4. Add only verified copy, architecture and links.
-5. Update the featured-project list in `README.md`.
-6. Update the expected project count and repository list in `.github/workflows/site-check.yml`.
-7. Push to `main`, confirm the portfolio check passes, and inspect the GitHub Pages deployment.
+2. Update the version in the `data/projects.js` script URL in `index.html` so browsers fetch the new data.
+3. Give it a unique ID and the next visible number.
+4. Select an existing category, size, theme and modal theme.
+5. Add only verified copy, architecture and links.
+6. Update the featured-project list in `README.md`.
+7. Update the expected project count and repository list in `.github/workflows/site-check.yml`.
+8. Push to `main`, confirm the portfolio check passes, and inspect the GitHub Pages deployment.
 
 Cards and modals are generated from the project data; no duplicate card HTML is required.
 
