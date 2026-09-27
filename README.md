@@ -13,11 +13,14 @@ A lightweight static portfolio for a Computer Engineering graduate focused on ap
 ## Featured projects
 
 - Cyberattack Tactics Triage
-- MetroPT-3 Predictive Maintenance
 - Real-Time Violence Event Detection
 - Serverless Receipt Processor
+- MetroPT-3 Predictive Maintenance
 - Signal — AWS Audio Transcription & Sentiment
-- CaptionLab — Image Captioning with Visual Attention
+- First Run — Desktop setup and bounded AI recovery for web projects
+
+## More work
+
 - Mythos — Comparative Mythology
 - TextScope NLP
 

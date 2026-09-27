@@ -79,14 +79,13 @@ jobs:
               'violence_detection',
               'serverless-receipt-processor',
               'aws-audio-transcription-sentiment',
-              'image-captioning',
+              'first-run',
               'textscope-nlp',
               'indo_european_gods',
           ]
           demos = [
               'https://sahilbh01r1769.github.io/indo_european_gods/',
               'https://nlp-webapp.streamlit.app/',
-              'https://image-captioningdemo.streamlit.app/',
               'https://metropt3-predictive-maintenance.streamlit.app/',
               'https://d3uo3z77ak8ix1.cloudfront.net/',
               'https://violencedetectionai.streamlit.app/',
@@ -122,7 +121,7 @@ jobs:
           - https://violencedetectionai.streamlit.app/
           - https://d3uo3z77ak8ix1.cloudfront.net/
           - https://d2h6neawct2uig.cloudfront.net/
-          - https://image-captioningdemo.streamlit.app/
+          - https://github.com/SahilBh01r1769/first-run
           - https://nlp-webapp.streamlit.app/
           - https://sahilbh01r1769.github.io/indo_european_gods/
     steps:

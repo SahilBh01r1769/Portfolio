@@ -26,11 +26,11 @@ Content belongs in the data files, behaviour in `app.js`, page structure in `ind
 All eight projects are defined in `data/projects.js` in their display order:
 
 1. Cyberattack Tactics Triage — `id: 'cyber'`
-2. MetroPT-3 Predictive Maintenance — `id: 'maintenance'`
-3. Real-Time Violence Event Detection — `id: 'violence'`
-4. Serverless Receipt Processor — `id: 'receipt'`
+2. Real-Time Violence Event Detection — `id: 'violence'`
+3. Serverless Receipt Processor — `id: 'receipt'`
+4. MetroPT-3 Predictive Maintenance — `id: 'maintenance'`
 5. Signal — Audio Transcription & Sentiment — `id: 'audio'`
-6. CaptionLab — `id: 'caption'`
+6. First Run — `id: 'first-run'`
 7. Mythos — Comparative Mythology — `id: 'mythos'`
 8. TextScope NLP — `id: 'textscope'`
 
@@ -39,18 +39,20 @@ Each project uses this shape:
 ```js
 {
   id: 'unique-key',
+  featured: true,             // false for More Work
   category: 'ml',              // ml | cloud | software
   size: 'project-md',          // bento-grid width
   theme: 'violet',             // card colour
   modalTheme: 'modal-violet',  // modal accent
-  eyebrow: '06 · VISION-LANGUAGE',
-  meta: 'DL',
+  eyebrow: '06 · DEVELOPER TOOLS / AI',
+  meta: 'HTTP verified',
   title: 'Project title',
   short: 'Short card description.',
   tags: ['Tag 1', 'Tag 2'],
   kicker: 'Modal category',
   summary: 'Longer modal summary.',
   focus: 'What was built and evaluated.',
+  evidence: 'A concrete result or observed behavior.',
   tradeoff: 'An honest limitation or design decision.',
   architecture: ['Input', 'Step', 'Output'],
   demo: 'https://...',          // use an empty string when no live demo exists
@@ -92,7 +94,7 @@ assets/projects/
 ├── violence.webp
 ├── receipt.webp
 ├── audio.webp
-├── captionlab.webp
+├── first-run.webp
 ├── mythos.webp
 └── textscope.webp
 ```
@@ -105,7 +107,7 @@ The workflow in `.github/workflows/site-check.yml` checks:
 
 - required modular files;
 - script and stylesheet loading order;
-- eight unique project records and their repository URLs;
+- eight project records (six featured, two secondary) and their repository URLs;
 - known live-demo URLs;
 - support for a repository-only project;
 - current education details;
