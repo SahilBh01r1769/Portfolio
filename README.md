@@ -1,6 +1,6 @@
 # Sahil Bhoir — Engineering Portfolio
 
-A lightweight static portfolio for a Computer Engineering graduate focused on applied AI/ML, computer vision, NLP, AWS cloud architecture and software engineering.
+A lightweight static portfolio for a Computer Engineering graduate focused on software engineering, backend systems, cloud workflows, developer tooling, data and applied ML.
 
 ## Design goals
 
@@ -12,12 +12,12 @@ A lightweight static portfolio for a Computer Engineering graduate focused on ap
 
 ## Projects
 
+- First Run — Desktop setup and bounded AI recovery for web projects
+- Serverless Receipt Processor
 - Cyberattack Tactics Triage
 - Real-Time Violence Event Detection
-- Serverless Receipt Processor
 - MetroPT-3 Predictive Maintenance
 - Signal — AWS Audio Transcription & Sentiment
-- First Run — Desktop setup and bounded AI recovery for web projects
 - Mythos — Comparative Mythology
 - TextScope NLP
 
