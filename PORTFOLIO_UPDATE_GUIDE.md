@@ -25,12 +25,12 @@ Content belongs in the data files, behaviour in `app.js`, page structure in `ind
 
 All eight projects are defined in `data/projects.js` in their display order:
 
-1. Cyberattack Tactics Triage — `id: 'cyber'`
-2. Real-Time Violence Event Detection — `id: 'violence'`
-3. Serverless Receipt Processor — `id: 'receipt'`
-4. MetroPT-3 Predictive Maintenance — `id: 'maintenance'`
-5. Signal — Audio Transcription & Sentiment — `id: 'audio'`
-6. First Run — `id: 'first-run'`
+1. First Run — `id: 'first-run'`
+2. Serverless Receipt Processor — `id: 'receipt'`
+3. Cyberattack Tactics Triage — `id: 'cyber'`
+4. Real-Time Violence Event Detection — `id: 'violence'`
+5. MetroPT-3 Predictive Maintenance — `id: 'maintenance'`
+6. Signal — Audio Transcription & Sentiment — `id: 'audio'`
 7. Mythos — Comparative Mythology — `id: 'mythos'`
 8. TextScope NLP — `id: 'textscope'`
 
