@@ -2,8 +2,6 @@ const nav = document.getElementById('nav');
 const navLinks = document.getElementById('navLinks');
 const mobileToggle = document.getElementById('mobileToggle');
 const projectGrid = document.getElementById('projectGrid');
-const moreWorkGrid = document.getElementById('moreWorkGrid');
-const moreWorkBlock = document.getElementById('moreWorkBlock');
 const articlesGrid = document.getElementById('articlesGrid');
 const modal = document.getElementById('projectModal');
 const modalPanel = modal?.querySelector('.modal-panel');
@@ -18,7 +16,7 @@ const modalActions = document.getElementById('modalActions');
 
 const PROJECTS = window.PORTFOLIO_PROJECTS || [];
 const ARTICLES = window.PORTFOLIO_ARTICLES || [];
-const MODAL_THEMES = ['modal-warm', 'modal-ink', 'modal-acid', 'modal-blue', 'modal-violet', 'modal-paper', 'modal-clay'];
+const MODAL_THEMES = ['modal-warm', 'modal-ink', 'modal-acid', 'modal-blue', 'modal-violet', 'modal-mint', 'modal-clay'];
 
 function createProjectCard(project) {
   const article = document.createElement('article');
@@ -64,10 +62,7 @@ function createArticleCard(article) {
 }
 
 function renderContent() {
-  const featured = PROJECTS.filter(project => project.featured !== false);
-  const moreWork = PROJECTS.filter(project => project.featured === false);
-  projectGrid?.replaceChildren(...featured.map(createProjectCard));
-  moreWorkGrid?.replaceChildren(...moreWork.map(createProjectCard));
+  projectGrid?.replaceChildren(...PROJECTS.map(createProjectCard));
   articlesGrid?.replaceChildren(...ARTICLES.map(createArticleCard));
 }
 
@@ -83,8 +78,6 @@ function setupProjectFilters() {
     getProjectCards().forEach(project => {
       project.classList.toggle('hidden', !(filter === 'all' || project.dataset.category === filter));
     });
-    const visibleSecondary = moreWorkGrid?.querySelectorAll('.project:not(.hidden)').length || 0;
-    moreWorkBlock?.classList.toggle('hidden', visibleSecondary === 0);
   }));
 }
 

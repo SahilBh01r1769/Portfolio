@@ -39,7 +39,6 @@ Each project uses this shape:
 ```js
 {
   id: 'unique-key',
-  featured: true,             // false for More Work
   category: 'ml',              // ml | cloud | software
   size: 'project-md',          // bento-grid width
   theme: 'violet',             // card colour
@@ -65,11 +64,11 @@ Each project uses this shape:
 ### Adding a project
 
 1. Add one object to `data/projects.js`.
-2. Update the version in the `data/projects.js` script URL in `index.html` so browsers fetch the new data.
+2. Update the version in the `data/projects.js` script URL in `index.html` to its new Git blob hash (first seven characters) so browsers fetch the new data. Do the same for `app.js` or `styles.css` when editing those files.
 3. Give it a unique ID and the next visible number.
 4. Select an existing category, size, theme and modal theme.
 5. Add only verified copy, architecture and links.
-6. Update the featured-project list in `README.md`.
+6. Update the project list in `README.md`.
 7. Update the expected project count and repository list in `.github/workflows/site-check.yml`.
 8. Push to `main`, confirm the portfolio check passes, and inspect the GitHub Pages deployment.
 
@@ -108,7 +107,7 @@ The workflow in `.github/workflows/site-check.yml` checks:
 
 - required modular files;
 - script and stylesheet loading order;
-- eight project records (six featured, two secondary) and their repository URLs;
+- eight project records and their repository URLs;
 - known live-demo URLs;
 - support for a repository-only project;
 - current education details;
@@ -143,7 +142,7 @@ Test the live cards, modal and links
 
 | Change | Primary file | Supporting change |
 |---|---|---|
-| Project copy, order, tags or links | `data/projects.js` | Usually none |
+| Project copy, order, tags or links | `data/projects.js` | Update its version in `index.html` |
 | Add or remove a project | `data/projects.js` | README + workflow |
 | Medium article | `data/articles.js` | None |
 | Resume | `resume.pdf` | None if filename stays unchanged |

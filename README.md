@@ -10,7 +10,7 @@ A lightweight static portfolio for a Computer Engineering graduate focused on ap
 - visually coherent without making every project look identical;
 - responsive with no build step or framework dependency.
 
-## Featured projects
+## Projects
 
 - Cyberattack Tactics Triage
 - Real-Time Violence Event Detection
@@ -18,9 +18,6 @@ A lightweight static portfolio for a Computer Engineering graduate focused on ap
 - MetroPT-3 Predictive Maintenance
 - Signal — AWS Audio Transcription & Sentiment
 - First Run — Desktop setup and bounded AI recovery for web projects
-
-## More work
-
 - Mythos — Comparative Mythology
 - TextScope NLP
 

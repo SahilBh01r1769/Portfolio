@@ -1,7 +1,6 @@
 window.PORTFOLIO_PROJECTS = [
   {
     id: 'cyber',
-    featured: true,
     category: 'ml',
     size: 'project-xl',
     theme: 'ink',
@@ -22,7 +21,6 @@ window.PORTFOLIO_PROJECTS = [
   },
   {
     id: 'violence',
-    featured: true,
     category: 'ml',
     size: 'project-md',
     theme: 'warm',
@@ -43,7 +41,6 @@ window.PORTFOLIO_PROJECTS = [
   },
   {
     id: 'receipt',
-    featured: true,
     category: 'cloud',
     size: 'project-lg',
     theme: 'blue',
@@ -64,7 +61,6 @@ window.PORTFOLIO_PROJECTS = [
   },
   {
     id: 'maintenance',
-    featured: true,
     category: 'ml',
     size: 'project-md',
     theme: 'acid',
@@ -85,7 +81,6 @@ window.PORTFOLIO_PROJECTS = [
   },
   {
     id: 'audio',
-    featured: true,
     category: 'cloud',
     size: 'project-sm',
     theme: 'violet',
@@ -106,11 +101,10 @@ window.PORTFOLIO_PROJECTS = [
   },
   {
     id: 'first-run',
-    featured: true,
     category: 'software',
     size: 'project-lg',
-    theme: 'paper',
-    modalTheme: 'modal-paper',
+    theme: 'mint',
+    modalTheme: 'modal-mint',
     eyebrow: '06 · DEVELOPER TOOLS / AI',
     meta: 'HTTP verified',
     title: 'First Run',
@@ -127,7 +121,6 @@ window.PORTFOLIO_PROJECTS = [
   },
   {
     id: 'mythos',
-    featured: false,
     category: 'software',
     size: 'project-lg',
     theme: 'clay',
@@ -148,7 +141,6 @@ window.PORTFOLIO_PROJECTS = [
   },
   {
     id: 'textscope',
-    featured: false,
     category: 'ml',
     size: 'project-sm',
     theme: 'warm',

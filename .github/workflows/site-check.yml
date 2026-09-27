@@ -19,6 +19,7 @@ jobs:
       - name: Validate static site
         run: |
           python - <<'PY'
+          import hashlib
           from html.parser import HTMLParser
           from pathlib import Path
 
@@ -56,6 +57,11 @@ jobs:
           parser = Parser()
           parser.feed(html)
 
+          def versioned(path):
+              data = Path(path).read_bytes()
+              blob = b'blob ' + str(len(data)).encode() + b'\0' + data
+              return f'{path}?v={hashlib.sha1(blob).hexdigest()[:7]}'
+
           assert '9.43' in html, 'Current CGPA missing'
           assert '80.5%' in html, 'Current HSC percentage missing'
           assert '9.744' not in html, 'Old CGPA still present'
@@ -65,10 +71,13 @@ jobs:
           assert '38 features' not in projects, 'Obsolete MetroPT feature framing still present'
 
           assert [src.split('?', 1)[0] for src in parser.scripts[-3:]] == ['data/projects.js', 'data/articles.js', 'app.js'], 'Data modules must load before app.js'
+          assert versioned('data/projects.js') in parser.scripts, 'Project data version is stale'
+          assert versioned('app.js') in parser.scripts, 'App script version is stale'
+          assert versioned('styles.css') in parser.stylesheets, 'Stylesheet version is stale'
           assert 'styles/about.css' in parser.stylesheets, 'About stylesheet missing'
           assert 'PORTFOLIO_PROJECTS' in projects and 'PORTFOLIO_ARTICLES' in articles, 'Portfolio data globals missing'
           assert 'renderContent()' in app, 'Portfolio render bootstrap missing'
-          assert 'moreWorkGrid' in html and 'moreWorkGrid' in app, 'Secondary project section missing'
+          assert 'moreWorkGrid' not in html and 'moreWorkGrid' not in app, 'More Work section still present'
           assert 'modalEvidence' in html and 'modalEvidence' in app, 'Evidence-rich project details missing'
           assert 'rel="canonical"' in html, 'Canonical URL missing'
           assert 'twitter:card' in html and 'og:url' in html, 'Social metadata incomplete'
@@ -95,15 +104,13 @@ jobs:
               assert value in projects, f'Missing project data: {value}'
 
           assert projects.count("id: '") == 8, 'Expected eight project records'
-          assert projects.count('featured: true') == 6, 'Expected six featured projects'
-          assert projects.count('featured: false') == 2, 'Expected two secondary projects'
           assert projects.count('evidence:') == 8, 'Every project needs an evidence statement'
           assert "demo: ''" in projects, 'Repository-only project case missing'
           assert 'project.demo' in app and 'modalDemoLink' in app, 'Optional demo rendering missing'
           assert articles.count("number: '") >= 4, 'Expected at least four article records'
           assert 'https://medium.com/@sahilbhoir151' in articles, 'Medium article links missing'
           assert 'resume.pdf' in parser.hrefs, 'Resume link missing'
-          print('Validated six featured projects, two secondary projects, evidence details and portfolio links.')
+          print('Validated eight project cards, asset versions, evidence details and portfolio links.')
           PY
 
   link-check:
